@@ -9,21 +9,33 @@ class EmailAddress extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
-  /// [EmailAddress] [factory] that call [Cunstractor] after validation.
+  /// [EmailAddress] default [factory] that call [Cunstractor] after validation.
   factory EmailAddress(String email) {
     return EmailAddress._(validateEmailAddress(email));
+  }
+
+  /// [EmailAddress] fromJson [factory] that call [Cunstractor] after validation.
+  factory EmailAddress.fromJson(Map<String, dynamic> json) {
+    return EmailAddress._(validateEmailAddress(json["email"]));
   }
 
   /// [EmailAddress] [Cunstractor] that define as [Private] to make sure the only way to instace this class is from [factory].
   const EmailAddress._(this.value);
 
+  /// Contvert [EmailAddress] to [json].
+  Map<String, dynamic> toJson() {
+    Map<String, dynamic> json = <String, dynamic>{};
+    json["email"] = getDataOrCrash();
+    return json;
+  }
+
   /// Email addres validator by using [EmailValidator] package.
   static Either<ValueFailure<String>, String> validateEmailAddress(
-      String email) {
-    if (EmailValidator.validate(email)) {
+      String? email) {
+    if (email != null && EmailValidator.validate(email)) {
       return Right(email);
     } else {
-      return Left(ValueFailure.invalidEmail(failedValue: email));
+      return Left(ValueFailure.invalidEmail(failedValue: email.toString()));
     }
   }
 }

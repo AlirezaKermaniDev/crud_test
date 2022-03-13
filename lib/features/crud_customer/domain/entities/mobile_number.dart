@@ -8,25 +8,38 @@ class MobileNumber extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
-  /// [MobileNumber] [factory] that call [Cunstractor] after validation.
+  /// [MobileNumber] defult [factory] that call [Cunstractor] after validation.
   factory MobileNumber(String email) {
     return MobileNumber._(validateMobileNumber(email));
+  }
+
+  /// [MobileNumber] fromJson [factory] that call [Cunstractor] after validation.
+  factory MobileNumber.fromJson(Map<String, dynamic> json) {
+    return MobileNumber._(validateMobileNumber(json["mobileNumber"]));
   }
 
   /// [MobileNumber] [Cunstractor] that define as [Private] to make sure the only way to instace this class is from [factory].
   const MobileNumber._(this.value);
 
-  /// Mobile number validator by using [RegExp] package.
+  /// Contvert [MobileNumber] to [json].
+  Map<String, dynamic> toJson() {
+    Map<String, dynamic> json = <String, dynamic>{};
+    json["mobileNumber"] = getDataOrCrash();
+    return json;
+  }
+
+  /// Mobile number validator by using [RegExp].
   static Either<ValueFailure<String>, String> validateMobileNumber(
-      String mobileNumber) {
+      String? mobileNumber) {
     /// RegExp pattern for valid mobile number;
     String pattern = r'^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$';
     RegExp regExp = RegExp(pattern);
 
-    if (regExp.hasMatch(mobileNumber)) {
+    if (mobileNumber != null && regExp.hasMatch(mobileNumber)) {
       return Right(mobileNumber);
     } else {
-      return Left(ValueFailure.invalidPhoneNumber(failedValue: mobileNumber));
+      return Left(ValueFailure.invalidPhoneNumber(
+          failedValue: mobileNumber.toString()));
     }
   }
 }

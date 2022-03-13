@@ -8,26 +8,39 @@ class BankAccountNumber extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
-  /// [BankAccountNumber] [factory] that call [Cunstractor] after validation.
+  /// [BankAccountNumber] defult [factory] that call [Cunstractor] after validation.
   factory BankAccountNumber(String email) {
-    return BankAccountNumber._(validateMobileNumber(email));
+    return BankAccountNumber._(validateBankAccountNumber(email));
+  }
+
+  /// [BankAccountNumber] fromJson [factory] that call [Cunstractor] after validation.
+  factory BankAccountNumber.fromJson(Map<String, dynamic> json) {
+    return BankAccountNumber._(
+        validateBankAccountNumber(json["bankAccountNumber"]));
   }
 
   /// [BankAccountNumber] [Cunstractor] that define as [Private] to make sure the only way to instace this class is from [factory].
   const BankAccountNumber._(this.value);
 
-  /// Bank account number validator by using [RegExp] package.
-  static Either<ValueFailure<String>, String> validateMobileNumber(
-      String bankAccountNumber) {
+  /// Contvert [BankAccountNumber] to [json].
+  Map<String, dynamic> toJson() {
+    Map<String, dynamic> json = <String, dynamic>{};
+    json["bankAccountNumber"] = getDataOrCrash();
+    return json;
+  }
+
+  /// Bank account number validator by using [RegExp].
+  static Either<ValueFailure<String>, String> validateBankAccountNumber(
+      String? bankAccountNumber) {
     /// RegExp pattern for valid bank account number;
     String pattern = r'^\w{1,17}$';
     RegExp regExp = RegExp(pattern);
 
-    if (regExp.hasMatch(bankAccountNumber)) {
+    if (bankAccountNumber != null && regExp.hasMatch(bankAccountNumber)) {
       return Right(bankAccountNumber);
     } else {
       return Left(ValueFailure.invalidBankAccountNumber(
-          failedValue: bankAccountNumber));
+          failedValue: bankAccountNumber.toString()));
     }
   }
 }
