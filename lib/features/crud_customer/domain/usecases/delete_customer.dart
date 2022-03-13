@@ -12,6 +12,6 @@ class DeleteCustomer implements UseCase<Customer, String> {
   @override
   Future<Either<CustomerFailure, Customer>> call(
       {required String params}) async {
-    return await _customerRepository.deleteCustomer(customerId: params);
+    return await _customerRepository.deleteCustomer(email: params);
   }
 }

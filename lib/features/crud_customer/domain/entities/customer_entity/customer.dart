@@ -10,7 +10,8 @@ part 'customer.g.dart';
 @freezed
 abstract class Customer with _$Customer {
   const factory Customer(
-      {required String firstname,
+      {
+      required String firstname,
       required String lastname,
       required DateTime dateOfBirth,
       required MobileNumber mobileNumber,

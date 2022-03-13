@@ -6,41 +6,43 @@ import 'package:mc_crud_test/features/crud_customer/domain/entities/email_addres
 import 'package:mc_crud_test/features/crud_customer/domain/entities/mobile_number.dart';
 import 'package:mc_crud_test/features/crud_customer/domain/repositories/customer_repository.dart';
 import 'package:mc_crud_test/features/crud_customer/domain/usecases/add_customer.dart';
+import 'package:mc_crud_test/features/crud_customer/domain/usecases/delete_customer.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import 'add_customer_test.mocks.dart';
+import 'delete_customer_test.mocks.dart';
 
 @GenerateMocks([CustomerRepository])
 void main() {
-  late AddCustomer addCustomer;
+  late DeleteCustomer deleteCustomer;
   late CustomerRepository mockCustomerRepositories;
 
   setUp(() {
     mockCustomerRepositories = MockCustomerRepository();
-    addCustomer = AddCustomer(mockCustomerRepositories);
+    deleteCustomer = DeleteCustomer(mockCustomerRepositories);
   });
 
+  const String tastEmail = "kermani@gmail.com";
+
   final Customer testCustomer = Customer(
-    
       firstname: "Alireza",
       lastname: "Kermani",
       dateOfBirth: DateTime(2000, 1, 6),
       mobileNumber: MobileNumber("09030604392"),
-      emailAddress: EmailAddress("kermani@gmail.com"),
+      emailAddress: EmailAddress(tastEmail),
       bankAccountNumber: BankAccountNumber("1111222233334444"));
 
   test('AddCustomer usecase should add user', () async {
     /// Arrange
-    when(mockCustomerRepositories.addCustomer(customer: testCustomer))
+    when(mockCustomerRepositories.deleteCustomer(email: tastEmail))
         .thenAnswer((_) async => Right(testCustomer));
 
     /// Act
-    final result = await addCustomer(params: testCustomer);
+    final result = await deleteCustomer(params: tastEmail);
 
     /// Assert
     expect(result, Right(testCustomer));
-    verify(mockCustomerRepositories.addCustomer(customer: testCustomer));
+    verify(mockCustomerRepositories.deleteCustomer(email: tastEmail));
     verifyNoMoreInteractions(mockCustomerRepositories);
   });
 }

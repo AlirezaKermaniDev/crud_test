@@ -10,9 +10,9 @@ abstract class CustomerRepository {
   Future<Either<CustomerFailure, Customer>> addCustomer(
       {required Customer customer});
 
-  /// for `Deleting` an [Customer] with [customerId]
+  /// for `Deleting` an [Customer] with [email] which is unique in database for each customer.
   Future<Either<CustomerFailure, Customer>> deleteCustomer(
-      {required String customerId});
+      {required String email});
 
   /// for `Editing` an Existing [Customer]
   Future<Either<CustomerFailure, Customer>> editCustomer(
@@ -21,7 +21,7 @@ abstract class CustomerRepository {
   /// for Getting List of the [Customer] that we stored id database.
   Future<Either<CustomerFailure, List<Customer>>> getCustomerList();
 
-  /// for Getting an [Customer] base on id.
+  /// for Getting an [Customer] base on [email] which is unique in database for each customer..
   Future<Either<CustomerFailure, Customer>> getCustomerById(
-      {required String customerId});
+      {required String email});
 }
