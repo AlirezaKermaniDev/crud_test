@@ -6,22 +6,22 @@ import 'package:mc_crud_test/features/crud_customer/domain/entities/customer_ent
 /// NOTE : These methods will be implemented in other classes with different ways.
 /// we dont care about implementing now we just create out core methods base on what we needed.
 abstract class CustomerRepository {
-  /// for `Adding` a new [Customer] to database.
+  /// For `Adding` a new [Customer] to database.
   Future<Either<CustomerFailure, Customer>> addCustomer(
       {required Customer customer});
 
-  /// for `Deleting` an [Customer] with [email] which is unique in database for each customer.
+  /// For `Deleting` an [Customer] with [email] which is unique in database for each customer.
   Future<Either<CustomerFailure, Customer>> deleteCustomer(
       {required String email});
 
-  /// for `Editing` an Existing [Customer]
+  /// For `Editing` an Existing [Customer]
   Future<Either<CustomerFailure, Customer>> editCustomer(
       {required Customer customer});
 
-  /// for Getting List of the [Customer] that we stored id database.
-  Future<Either<CustomerFailure, List<Customer>>> getCustomerList();
+  /// For Getting List of the [Customer] that we stored id database.
+  Future<Either<CustomerFailure, List<Customer>>> getCustomersList();
 
-  /// for Getting an [Customer] base on [email] which is unique in database for each customer..
+  /// For Getting an [Customer] base on [email] which is unique in database for each customer..
   Future<Either<CustomerFailure, Customer>> getCustomerById(
       {required String email});
 }
