@@ -8,7 +8,7 @@ class BankAccountNumber extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
-  /// [BankAccountNumber] defult [factory] that call [Cunstractor] after validation.
+  /// [BankAccountNumber] default [factory] that call [Cunstractor] after validation.
   factory BankAccountNumber(String email) {
     return BankAccountNumber._(validateBankAccountNumber(email));
   }
@@ -33,7 +33,7 @@ class BankAccountNumber extends ValueObject<String> {
   static Either<ValueFailure<String>, String> validateBankAccountNumber(
       String? bankAccountNumber) {
     /// RegExp pattern for valid bank account number;
-    String pattern = r'^\w{1,17}$';
+    String pattern = r'^[0-9]{7,17}$';
     RegExp regExp = RegExp(pattern);
 
     if (bankAccountNumber != null && regExp.hasMatch(bankAccountNumber)) {

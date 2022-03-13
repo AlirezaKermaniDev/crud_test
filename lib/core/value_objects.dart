@@ -6,7 +6,7 @@ import 'failure/value_failure/value_failure.dart';
 /// ValueObject interface is for creating valus that must be [Validate] like `Email address` or `Phone number` and ... .
 @immutable
 abstract class ValueObject<T> {
-  /// ValueObject defult constractor.
+  /// ValueObject default constractor.
   const ValueObject();
 
   /// This [value] getter hold our value that is maybe [valid] or [Invalid].

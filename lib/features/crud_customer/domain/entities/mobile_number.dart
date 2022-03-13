@@ -8,9 +8,9 @@ class MobileNumber extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
-  /// [MobileNumber] defult [factory] that call [Cunstractor] after validation.
-  factory MobileNumber(String email) {
-    return MobileNumber._(validateMobileNumber(email));
+  /// [MobileNumber] default [factory] that call [Cunstractor] after validation.
+  factory MobileNumber(String mobile) {
+    return MobileNumber._(validateMobileNumber(mobile));
   }
 
   /// [MobileNumber] fromJson [factory] that call [Cunstractor] after validation.
@@ -32,7 +32,8 @@ class MobileNumber extends ValueObject<String> {
   static Either<ValueFailure<String>, String> validateMobileNumber(
       String? mobileNumber) {
     /// RegExp pattern for valid mobile number;
-    String pattern = r'^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$';
+    String pattern =
+        r'^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$';
     RegExp regExp = RegExp(pattern);
 
     if (mobileNumber != null && regExp.hasMatch(mobileNumber)) {
