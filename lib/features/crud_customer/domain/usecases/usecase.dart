@@ -5,6 +5,6 @@ import 'package:mc_crud_test/core/failure/customer_failure/customer_failure.dart
 abstract class UseCase<Type, Params> {
   /// [call] function is equal to custractor of our usecase instances which means
   /// there is no need to code like this `addCustomer.call(customer)` to call the [call] function.
-  /// instead we can do this `addCustomer(customer)` and then the flutter automaticly call the [call] function.
+  /// instead we can do this `addCustomer(customer)` and then the flutter automatically call the [call] function.
   Future<Either<CustomerFailure, Type>> call({required Params params});
 }
