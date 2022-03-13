@@ -32,6 +32,10 @@ dependencies:
   # Get it for service locator
   get_it: ^7.2.0
 
+  # Validators
+  email_validator: ^2.0.1
+
+
   # This one created buy flutter :)
   cupertino_icons: ^1.0.2
 
