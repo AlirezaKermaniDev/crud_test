@@ -4,14 +4,14 @@ import 'package:mc_crud_test/features/crud_customer/domain/entities/customer_ent
 import 'package:mc_crud_test/features/crud_customer/domain/repositories/customer_repository.dart';
 import 'package:mc_crud_test/features/crud_customer/domain/usecases/usecase.dart';
 
-class AddCustomer implements UseCase<Customer, Customer> {
+class DeleteCustomer implements UseCase<Customer, String> {
   final CustomerRepository _customerRepository;
 
-  AddCustomer(this._customerRepository);
+  DeleteCustomer(this._customerRepository);
 
   @override
   Future<Either<CustomerFailure, Customer>> call(
-      {required Customer params}) async {
-    return await _customerRepository.addCustomer(customer: params);
+      {required String params}) async {
+    return await _customerRepository.deleteCustomer(customerId: params);
   }
 }

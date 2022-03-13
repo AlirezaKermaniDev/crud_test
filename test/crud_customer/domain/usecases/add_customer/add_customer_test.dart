@@ -35,7 +35,7 @@ void main() {
         .thenAnswer((_) async => Right(testCustomer));
 
     /// Act
-    final result = await addCustomer(customer: testCustomer);
+    final result = await addCustomer(params: testCustomer);
 
     /// Assert
     expect(result, Right(testCustomer));
