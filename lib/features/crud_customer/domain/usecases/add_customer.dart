@@ -8,8 +8,7 @@ class AddCustomer {
 
   AddCustomer(this._customerRepository);
 
-  Future<Either<CustomerFailure, Customer>> call(
-      {required Customer customer}) async {
+  Future<Either<CustomerFailure, Customer>> call({required Customer customer}) async {
     return await _customerRepository.addCustomer(customer: customer);
   }
 }
