@@ -30,7 +30,7 @@ void main() {
       emailAddress: EmailAddress("kermani@gmail.com"),
       bankAccountNumber: BankAccountNumber("1111222233334444"));
 
-  test('AddCustomer usecase should add user', () async {
+  test('AddCustomer usecase should add customer', () async {
     /// Arrange
     when(mockCustomerRepositories.addCustomer(customer: testCustomer))
         .thenAnswer((_) async => Right(testCustomer));

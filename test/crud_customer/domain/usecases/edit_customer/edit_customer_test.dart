@@ -6,43 +6,43 @@ import 'package:mc_crud_test/features/crud_customer/domain/entities/email_addres
 import 'package:mc_crud_test/features/crud_customer/domain/entities/mobile_number.dart';
 import 'package:mc_crud_test/features/crud_customer/domain/repositories/customer_repository.dart';
 import 'package:mc_crud_test/features/crud_customer/domain/usecases/add_customer.dart';
-import 'package:mc_crud_test/features/crud_customer/domain/usecases/delete_customer.dart';
+import 'package:mc_crud_test/features/crud_customer/domain/usecases/Edit_customer.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import 'delete_customer_test.mocks.dart';
+import 'edit_customer_test.mocks.dart';
 
 @GenerateMocks([CustomerRepository])
 void main() {
-  late DeleteCustomer deleteCustomer;
+  late EditCustomer editCustomer;
   late CustomerRepository mockCustomerRepositories;
 
   setUp(() {
     mockCustomerRepositories = MockCustomerRepository();
-    deleteCustomer = DeleteCustomer(mockCustomerRepositories);
+    editCustomer = EditCustomer(mockCustomerRepositories);
   });
-
-  const String tastEmail = "kermani@gmail.com";
 
   final Customer testCustomer = Customer(
       firstname: "Alireza",
       lastname: "Kermani",
       dateOfBirth: DateTime(2000, 1, 6),
       mobileNumber: MobileNumber("09030604392"),
-      emailAddress: EmailAddress(tastEmail),
+      emailAddress: EmailAddress("kermani@gmail.com"),
       bankAccountNumber: BankAccountNumber("1111222233334444"));
 
-  test('DeleteCustomer usecase should delete customer', () async {
+  test(
+      'Edit Customer use case should edit an existing customer and then return the edited customer',
+      () async {
     /// Arrange
-    when(mockCustomerRepositories.deleteCustomer(email: tastEmail))
+    when(mockCustomerRepositories.editCustomer(customer: testCustomer))
         .thenAnswer((_) async => Right(testCustomer));
 
     /// Act
-    final result = await deleteCustomer(params: tastEmail);
+    final result = await editCustomer(params: testCustomer);
 
     /// Assert
     expect(result, Right(testCustomer));
-    verify(mockCustomerRepositories.deleteCustomer(email: tastEmail));
+    verify(mockCustomerRepositories.editCustomer(customer: testCustomer));
     verifyNoMoreInteractions(mockCustomerRepositories);
   });
 }
