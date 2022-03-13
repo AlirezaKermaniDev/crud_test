@@ -22,6 +22,6 @@ abstract class CustomerRepository {
   Future<Either<CustomerFailure, List<Customer>>> getCustomersList();
 
   /// For Getting an [Customer] base on [email] which is unique in database for each customer..
-  Future<Either<CustomerFailure, Customer>> getCustomerById(
+  Future<Either<CustomerFailure, Customer>> getCustomerByEmail(
       {required String email});
 }

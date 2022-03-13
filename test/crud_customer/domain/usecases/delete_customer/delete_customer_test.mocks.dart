@@ -70,7 +70,7 @@ class MockCustomerRepository extends _i1.Mock
               _FakeEither_0<_i5.CustomerFailure, List<_i6.Customer>>())) as _i4
           .Future<_i2.Either<_i5.CustomerFailure, List<_i6.Customer>>>);
   @override
-  _i4.Future<_i2.Either<_i5.CustomerFailure, _i6.Customer>> getCustomerById(
+  _i4.Future<_i2.Either<_i5.CustomerFailure, _i6.Customer>> getCustomerByEmail(
           {String? email}) =>
       (super.noSuchMethod(
               Invocation.method(#getCustomerById, [], {#email: email}),
