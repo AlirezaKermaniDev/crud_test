@@ -10,5 +10,12 @@ abstract class CustomerFailure with _$CustomerFailure {
   const factory CustomerFailure.customerExist() = CustomerExist;
 
   /// Email must be unique in the database.
-  const factory CustomerFailure.gmailHasBeenTaken() = GmailHasBeenTaken;
+  const factory CustomerFailure.emailHasBeenTaken() = EmailHasBeenTaken;
+
+  /// When Unexpexted [Exeption] happend.
+  const factory CustomerFailure.unexpextedFailure(String message) =
+      UnexpextedFailure;
+
+  /// When cannot find Customer
+  const factory CustomerFailure.customerNoFound() = CustomerNoFound;
 }
