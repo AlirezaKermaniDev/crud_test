@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:mc_crud_test/core/failure/customer_failure/customer_failure.dart';
+import 'package:mc_crud_test/features/crud_customer/data/models/customer_model.dart';
 import 'package:mc_crud_test/features/crud_customer/domain/entities/customer_entity/customer.dart';
 
 /// Customer repository interface hold our `CRUD` abstract methods.
@@ -8,7 +9,7 @@ import 'package:mc_crud_test/features/crud_customer/domain/entities/customer_ent
 abstract class CustomerRepository {
   /// For `Adding` a new [Customer] to database.
   Future<Either<CustomerFailure, Customer>> addCustomer(
-      {required Customer customer});
+      {required CustomerModel customer});
 
   /// For `Deleting` an [Customer] with [email] which is unique in database for each customer.
   Future<Either<CustomerFailure, Customer>> deleteCustomer(
@@ -16,12 +17,12 @@ abstract class CustomerRepository {
 
   /// For `Editing` an Existing [Customer]
   Future<Either<CustomerFailure, Customer>> editCustomer(
-      {required Customer customer});
+      {required CustomerModel customer});
 
-  /// For Getting List of the [Customer] that we stored id database.
+  /// For `Getting List` of the [Customer] that we stored id database.
   Future<Either<CustomerFailure, List<Customer>>> getCustomersList();
 
-  /// For Getting an [Customer] base on [email] which is unique in database for each customer..
+  /// For `Getting` an [Customer] base on [email] which is unique in database for each customer..
   Future<Either<CustomerFailure, Customer>> getCustomerByEmail(
       {required String email});
 }
