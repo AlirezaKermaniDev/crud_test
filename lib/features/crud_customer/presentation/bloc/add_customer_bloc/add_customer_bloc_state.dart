@@ -14,7 +14,7 @@ class AddCustomerBlocState with _$AddCustomerBlocState {
     required String lastName,
 
     /// This hold [bateOfBirthChange] value that user Enter.
-    required DateTime bateOfBirthChange,
+    required DateTime dateOfBirthChange,
 
     /// This hold [emailAddress] value that user Enter.
     required EmailAddress emailAddress,
@@ -44,7 +44,7 @@ class AddCustomerBlocState with _$AddCustomerBlocState {
   factory AddCustomerBlocState.initial() => AddCustomerBlocState(
         firstName: '',
         lastName: '',
-        bateOfBirthChange: DateTime.now(),
+        dateOfBirthChange: DateTime.now(),
         emailAddress: EmailAddress(''),
         bankAccountNumber: BankAccountNumber(''),
         mobileNumber: MobileNumber(''),

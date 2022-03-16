@@ -42,7 +42,7 @@ class AddCustomerBlocBloc
           /// when [dateOfBirthChange] `Event` called this block of code will run.
           dateOfBirthChange: (e) {
         emit(state.copyWith(
-            bateOfBirthChange: e.dateOfBirth,
+            dateOfBirthChange: e.dateOfBirth,
             customerfailureOrSuccessOption: none()));
       },
 
@@ -99,7 +99,7 @@ class AddCustomerBlocBloc
   Customer customerMaker() {
     Customer customer = Customer(
         bankAccountNumber: state.bankAccountNumber,
-        dateOfBirth: state.bateOfBirthChange,
+        dateOfBirth: state.dateOfBirthChange,
         emailAddress: state.emailAddress,
         mobileNumber: state.mobileNumber,
         firstname: state.firstName,

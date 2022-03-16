@@ -1304,7 +1304,7 @@ class _$AddCustomerBlocStateTearOff {
   _AddCustomerBlocState call(
       {required String firstName,
       required String lastName,
-      required DateTime bateOfBirthChange,
+      required DateTime dateOfBirthChange,
       required EmailAddress emailAddress,
       required MobileNumber mobileNumber,
       required BankAccountNumber bankAccountNumber,
@@ -1315,7 +1315,7 @@ class _$AddCustomerBlocStateTearOff {
     return _AddCustomerBlocState(
       firstName: firstName,
       lastName: lastName,
-      bateOfBirthChange: bateOfBirthChange,
+      dateOfBirthChange: dateOfBirthChange,
       emailAddress: emailAddress,
       mobileNumber: mobileNumber,
       bankAccountNumber: bankAccountNumber,
@@ -1338,7 +1338,7 @@ mixin _$AddCustomerBlocState {
   String get lastName => throw _privateConstructorUsedError;
 
   /// This hold [bateOfBirthChange] value that user Enter.
-  DateTime get bateOfBirthChange => throw _privateConstructorUsedError;
+  DateTime get dateOfBirthChange => throw _privateConstructorUsedError;
 
   /// This hold [emailAddress] value that user Enter.
   EmailAddress get emailAddress => throw _privateConstructorUsedError;
@@ -1376,7 +1376,7 @@ abstract class $AddCustomerBlocStateCopyWith<$Res> {
   $Res call(
       {String firstName,
       String lastName,
-      DateTime bateOfBirthChange,
+      DateTime dateOfBirthChange,
       EmailAddress emailAddress,
       MobileNumber mobileNumber,
       BankAccountNumber bankAccountNumber,
@@ -1398,7 +1398,7 @@ class _$AddCustomerBlocStateCopyWithImpl<$Res>
   $Res call({
     Object? firstName = freezed,
     Object? lastName = freezed,
-    Object? bateOfBirthChange = freezed,
+    Object? dateOfBirthChange = freezed,
     Object? emailAddress = freezed,
     Object? mobileNumber = freezed,
     Object? bankAccountNumber = freezed,
@@ -1415,9 +1415,9 @@ class _$AddCustomerBlocStateCopyWithImpl<$Res>
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String,
-      bateOfBirthChange: bateOfBirthChange == freezed
-          ? _value.bateOfBirthChange
-          : bateOfBirthChange // ignore: cast_nullable_to_non_nullable
+      dateOfBirthChange: dateOfBirthChange == freezed
+          ? _value.dateOfBirthChange
+          : dateOfBirthChange // ignore: cast_nullable_to_non_nullable
               as DateTime,
       emailAddress: emailAddress == freezed
           ? _value.emailAddress
@@ -1457,7 +1457,7 @@ abstract class _$AddCustomerBlocStateCopyWith<$Res>
   $Res call(
       {String firstName,
       String lastName,
-      DateTime bateOfBirthChange,
+      DateTime dateOfBirthChange,
       EmailAddress emailAddress,
       MobileNumber mobileNumber,
       BankAccountNumber bankAccountNumber,
@@ -1481,7 +1481,7 @@ class __$AddCustomerBlocStateCopyWithImpl<$Res>
   $Res call({
     Object? firstName = freezed,
     Object? lastName = freezed,
-    Object? bateOfBirthChange = freezed,
+    Object? dateOfBirthChange = freezed,
     Object? emailAddress = freezed,
     Object? mobileNumber = freezed,
     Object? bankAccountNumber = freezed,
@@ -1498,9 +1498,9 @@ class __$AddCustomerBlocStateCopyWithImpl<$Res>
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String,
-      bateOfBirthChange: bateOfBirthChange == freezed
-          ? _value.bateOfBirthChange
-          : bateOfBirthChange // ignore: cast_nullable_to_non_nullable
+      dateOfBirthChange: dateOfBirthChange == freezed
+          ? _value.dateOfBirthChange
+          : dateOfBirthChange // ignore: cast_nullable_to_non_nullable
               as DateTime,
       emailAddress: emailAddress == freezed
           ? _value.emailAddress
@@ -1536,7 +1536,7 @@ class _$_AddCustomerBlocState implements _AddCustomerBlocState {
   const _$_AddCustomerBlocState(
       {required this.firstName,
       required this.lastName,
-      required this.bateOfBirthChange,
+      required this.dateOfBirthChange,
       required this.emailAddress,
       required this.mobileNumber,
       required this.bankAccountNumber,
@@ -1555,7 +1555,7 @@ class _$_AddCustomerBlocState implements _AddCustomerBlocState {
   @override
 
   /// This hold [bateOfBirthChange] value that user Enter.
-  final DateTime bateOfBirthChange;
+  final DateTime dateOfBirthChange;
   @override
 
   /// This hold [emailAddress] value that user Enter.
@@ -1588,7 +1588,7 @@ class _$_AddCustomerBlocState implements _AddCustomerBlocState {
 
   @override
   String toString() {
-    return 'AddCustomerBlocState(firstName: $firstName, lastName: $lastName, bateOfBirthChange: $bateOfBirthChange, emailAddress: $emailAddress, mobileNumber: $mobileNumber, bankAccountNumber: $bankAccountNumber, customerfailureOrSuccessOption: $customerfailureOrSuccessOption, isAdding: $isAdding, showError: $showError)';
+    return 'AddCustomerBlocState(firstName: $firstName, lastName: $lastName, dateOfBirthChange: $dateOfBirthChange, emailAddress: $emailAddress, mobileNumber: $mobileNumber, bankAccountNumber: $bankAccountNumber, customerfailureOrSuccessOption: $customerfailureOrSuccessOption, isAdding: $isAdding, showError: $showError)';
   }
 
   @override
@@ -1599,7 +1599,7 @@ class _$_AddCustomerBlocState implements _AddCustomerBlocState {
             const DeepCollectionEquality().equals(other.firstName, firstName) &&
             const DeepCollectionEquality().equals(other.lastName, lastName) &&
             const DeepCollectionEquality()
-                .equals(other.bateOfBirthChange, bateOfBirthChange) &&
+                .equals(other.dateOfBirthChange, dateOfBirthChange) &&
             const DeepCollectionEquality()
                 .equals(other.emailAddress, emailAddress) &&
             const DeepCollectionEquality()
@@ -1618,7 +1618,7 @@ class _$_AddCustomerBlocState implements _AddCustomerBlocState {
       runtimeType,
       const DeepCollectionEquality().hash(firstName),
       const DeepCollectionEquality().hash(lastName),
-      const DeepCollectionEquality().hash(bateOfBirthChange),
+      const DeepCollectionEquality().hash(dateOfBirthChange),
       const DeepCollectionEquality().hash(emailAddress),
       const DeepCollectionEquality().hash(mobileNumber),
       const DeepCollectionEquality().hash(bankAccountNumber),
@@ -1637,7 +1637,7 @@ abstract class _AddCustomerBlocState implements AddCustomerBlocState {
   const factory _AddCustomerBlocState(
       {required String firstName,
       required String lastName,
-      required DateTime bateOfBirthChange,
+      required DateTime dateOfBirthChange,
       required EmailAddress emailAddress,
       required MobileNumber mobileNumber,
       required BankAccountNumber bankAccountNumber,
@@ -1657,7 +1657,7 @@ abstract class _AddCustomerBlocState implements AddCustomerBlocState {
   @override
 
   /// This hold [bateOfBirthChange] value that user Enter.
-  DateTime get bateOfBirthChange;
+  DateTime get dateOfBirthChange;
   @override
 
   /// This hold [emailAddress] value that user Enter.
