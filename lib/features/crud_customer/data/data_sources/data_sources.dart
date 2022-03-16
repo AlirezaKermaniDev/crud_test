@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:mc_crud_test/core/failure/customer_failure/customer_failure.dart';
-import 'package:mc_crud_test/features/crud_customer/data/models/customer_model.dart';
 import 'package:mc_crud_test/features/crud_customer/domain/entities/customer_entity/customer.dart';
 
 /// DataSorce interface holds all of the Interactions between our repostiroies and our data sources
@@ -10,7 +9,7 @@ import 'package:mc_crud_test/features/crud_customer/domain/entities/customer_ent
 abstract class DataSource {
   /// `Creating` new [Customer].
   Future<Either<CustomerFailure, Customer>> createCustomer(
-      {required CustomerModel customerModel});
+      {required Customer customer});
 
   /// `Finding` a [Customer] by [email].
   ///
@@ -27,5 +26,5 @@ abstract class DataSource {
 
   /// `Puting` or `Editing` a [Customer].
   Future<Either<CustomerFailure, Customer>> putCustomer(
-      {required CustomerModel customerModel});
+      {required Customer customer});
 }

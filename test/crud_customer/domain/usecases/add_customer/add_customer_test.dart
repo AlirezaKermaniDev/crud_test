@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mc_crud_test/features/crud_customer/data/models/customer_model.dart';
 import 'package:mc_crud_test/features/crud_customer/domain/entities/bank_account_number.dart';
 import 'package:mc_crud_test/features/crud_customer/domain/entities/customer_entity/customer.dart';
 import 'package:mc_crud_test/features/crud_customer/domain/entities/email_address.dart';
@@ -22,7 +21,7 @@ void main() {
     addCustomer = AddCustomer(mockCustomerRepositories);
   });
 
-  final CustomerModel testCustomer = CustomerModel(
+  final Customer testCustomer = Customer(
       firstname: "Alireza",
       lastname: "Kermani",
       dateOfBirth: DateTime(2000, 1, 6),

@@ -23,7 +23,7 @@ Map<String, dynamic> _$$_CustomerToJson(_$_Customer instance) =>
       'firstname': instance.firstname,
       'lastname': instance.lastname,
       'dateOfBirth': instance.dateOfBirth.toIso8601String(),
-      'mobileNumber': instance.mobileNumber,
-      'emailAddress': instance.emailAddress,
-      'bankAccountNumber': instance.bankAccountNumber,
+      'mobileNumber': instance.mobileNumber.toJson(),
+      'emailAddress': instance.emailAddress.toJson(),
+      'bankAccountNumber': instance.bankAccountNumber.toJson(),
     };

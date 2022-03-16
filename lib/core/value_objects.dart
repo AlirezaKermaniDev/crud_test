@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'failure/value_failure/value_failure.dart';
 
 /// ValueObject interface is for creating valus that must be [Validate] like `Email address` or `Phone number` and ... .
-@immutable
 abstract class ValueObject<T> {
   /// ValueObject default constractor.
   const ValueObject();

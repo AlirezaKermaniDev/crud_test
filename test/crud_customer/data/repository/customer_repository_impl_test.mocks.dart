@@ -9,8 +9,6 @@ import 'package:mc_crud_test/core/failure/customer_failure/customer_failure.dart
     as _i5;
 import 'package:mc_crud_test/features/crud_customer/data/data_sources/data_sources.dart'
     as _i3;
-import 'package:mc_crud_test/features/crud_customer/data/models/customer_model.dart'
-    as _i7;
 import 'package:mc_crud_test/features/crud_customer/domain/entities/customer_entity/customer.dart'
     as _i6;
 import 'package:mockito/mockito.dart' as _i1;
@@ -37,10 +35,9 @@ class MockDataSource extends _i1.Mock implements _i3.DataSource {
 
   @override
   _i4.Future<_i2.Either<_i5.CustomerFailure, _i6.Customer>> createCustomer(
-          {_i7.CustomerModel? customerModel}) =>
+          {_i6.Customer? customer}) =>
       (super.noSuchMethod(
-              Invocation.method(
-                  #createCustomer, [], {#customerModel: customerModel}),
+              Invocation.method(#createCustomer, [], {#customer: customer}),
               returnValue:
                   Future<_i2.Either<_i5.CustomerFailure, _i6.Customer>>.value(
                       _FakeEither_0<_i5.CustomerFailure, _i6.Customer>()))
@@ -72,11 +69,11 @@ class MockDataSource extends _i1.Mock implements _i3.DataSource {
           .Future<_i2.Either<_i5.CustomerFailure, List<_i6.Customer>>>);
   @override
   _i4.Future<_i2.Either<_i5.CustomerFailure, _i6.Customer>> putCustomer(
-          {_i7.CustomerModel? customerModel}) =>
+          {_i6.Customer? customer}) =>
       (super.noSuchMethod(
-          Invocation.method(#putCustomer, [], {#customerModel: customerModel}),
-          returnValue:
-              Future<_i2.Either<_i5.CustomerFailure, _i6.Customer>>.value(
-                  _FakeEither_0<_i5.CustomerFailure, _i6.Customer>())) as _i4
-          .Future<_i2.Either<_i5.CustomerFailure, _i6.Customer>>);
+              Invocation.method(#putCustomer, [], {#customer: customer}),
+              returnValue:
+                  Future<_i2.Either<_i5.CustomerFailure, _i6.Customer>>.value(
+                      _FakeEither_0<_i5.CustomerFailure, _i6.Customer>()))
+          as _i4.Future<_i2.Either<_i5.CustomerFailure, _i6.Customer>>);
 }

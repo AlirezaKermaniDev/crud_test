@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:hive/hive.dart';
 import 'package:mc_crud_test/core/failure/value_failure/value_failure.dart';
 import 'package:mc_crud_test/core/value_objects.dart';
 
@@ -20,7 +21,7 @@ class BankAccountNumber extends ValueObject<String> {
   }
 
   /// [BankAccountNumber] [Cunstractor] that define as [Private] to make sure the only way to instace this class is from [factory].
-  const BankAccountNumber._(this.value);
+   BankAccountNumber._(this.value);
 
   /// Contvert [BankAccountNumber] to [json].
   Map<String, dynamic> toJson() {

@@ -1,5 +1,4 @@
 import 'package:mc_crud_test/features/crud_customer/data/data_sources/data_sources.dart';
-import 'package:mc_crud_test/features/crud_customer/data/models/customer_model.dart';
 import 'package:mc_crud_test/features/crud_customer/domain/entities/customer_entity/customer.dart';
 import 'package:mc_crud_test/core/failure/customer_failure/customer_failure.dart';
 import 'package:dartz/dartz.dart';
@@ -13,8 +12,8 @@ class CustomerRepositoryImpl implements CustomerRepository {
 
   @override
   Future<Either<CustomerFailure, Customer>> addCustomer(
-      {required CustomerModel customer}) async {
-    return await dataSource.createCustomer(customerModel: customer);
+      {required Customer customer}) async {
+    return await dataSource.createCustomer(customer: customer);
   }
 
   @override
@@ -25,8 +24,8 @@ class CustomerRepositoryImpl implements CustomerRepository {
 
   @override
   Future<Either<CustomerFailure, Customer>> editCustomer(
-      {required CustomerModel customer}) async {
-    return await dataSource.putCustomer(customerModel: customer);
+      {required Customer customer}) async {
+    return await dataSource.putCustomer(customer: customer);
   }
 
   @override

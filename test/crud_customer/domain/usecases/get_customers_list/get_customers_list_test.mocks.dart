@@ -7,8 +7,6 @@ import 'dart:async' as _i4;
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:mc_crud_test/core/failure/customer_failure/customer_failure.dart'
     as _i5;
-import 'package:mc_crud_test/features/crud_customer/data/models/customer_model.dart'
-    as _i7;
 import 'package:mc_crud_test/features/crud_customer/domain/entities/customer_entity/customer.dart'
     as _i6;
 import 'package:mc_crud_test/features/crud_customer/domain/repositories/customer_repository.dart'
@@ -38,7 +36,7 @@ class MockCustomerRepository extends _i1.Mock
 
   @override
   _i4.Future<_i2.Either<_i5.CustomerFailure, _i6.Customer>> addCustomer(
-          {_i7.CustomerModel? customer}) =>
+          {_i6.Customer? customer}) =>
       (super.noSuchMethod(
               Invocation.method(#addCustomer, [], {#customer: customer}),
               returnValue:
@@ -56,7 +54,7 @@ class MockCustomerRepository extends _i1.Mock
           as _i4.Future<_i2.Either<_i5.CustomerFailure, _i6.Customer>>);
   @override
   _i4.Future<_i2.Either<_i5.CustomerFailure, _i6.Customer>> editCustomer(
-          {_i7.CustomerModel? customer}) =>
+          {_i6.Customer? customer}) =>
       (super.noSuchMethod(
               Invocation.method(#editCustomer, [], {#customer: customer}),
               returnValue:

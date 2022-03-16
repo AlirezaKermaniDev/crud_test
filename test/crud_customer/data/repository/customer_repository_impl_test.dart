@@ -1,7 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mc_crud_test/features/crud_customer/data/data_sources/data_sources.dart';
-import 'package:mc_crud_test/features/crud_customer/data/models/customer_model.dart';
 import 'package:mc_crud_test/features/crud_customer/data/repositories/customer_repository_impl.dart';
 import 'package:mc_crud_test/features/crud_customer/domain/entities/bank_account_number.dart';
 import 'package:mc_crud_test/features/crud_customer/domain/entities/customer_entity/customer.dart';
@@ -25,7 +24,7 @@ void main() {
   });
 
   const testEmail = "kermani@gmail.com";
-  final CustomerModel testCustomer = CustomerModel(
+  final Customer testCustomer = Customer(
       firstname: "Alireza",
       lastname: "Kermani",
       dateOfBirth: DateTime(2000, 1, 6),
@@ -37,7 +36,7 @@ void main() {
     test('Add customer method should created customer and return the customer',
         () async {
       /// Arrange
-      when(mockDataSource.createCustomer(customerModel: testCustomer))
+      when(mockDataSource.createCustomer(customer: testCustomer))
           .thenAnswer((_) async => Right(testCustomer));
 
       /// Act
@@ -68,7 +67,7 @@ void main() {
         'Edit customer method should Edit a existing customer and return the customer',
         () async {
       /// Arrange
-      when(mockDataSource.putCustomer(customerModel: testCustomer))
+      when(mockDataSource.putCustomer(customer: testCustomer))
           .thenAnswer((_) async => Right(testCustomer));
 
       /// Act
