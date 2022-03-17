@@ -1,4 +1,4 @@
-part of 'manage_customers_bloc_bloc.dart';
+part of 'manage_customers_bloc.dart';
 
 /// [ManageCustomersBlocState] class is our state.
 ///

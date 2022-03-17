@@ -1,4 +1,4 @@
-part of 'add_customer_bloc_bloc.dart';
+part of 'add_customer_bloc.dart';
 
 /// [AddCustomerBlocEvent] hold our add customer Events.
 @freezed

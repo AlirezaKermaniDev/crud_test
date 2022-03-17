@@ -8,7 +8,7 @@ import 'package:mc_crud_test/features/crud_customer/domain/entities/email_addres
 import 'package:mc_crud_test/features/crud_customer/domain/entities/mobile_number.dart';
 import 'package:mc_crud_test/features/crud_customer/domain/repositories/customer_repository.dart';
 import 'package:mc_crud_test/features/crud_customer/domain/usecases/add_customer.dart';
-import 'package:mc_crud_test/features/crud_customer/presentation/bloc/add_customer_bloc/add_customer_bloc_bloc.dart';
+import 'package:mc_crud_test/features/crud_customer/presentation/bloc/add_customer_bloc/add_customer_bloc.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
@@ -17,10 +17,10 @@ import 'add_customer_bloc_test.mocks.dart';
 @GenerateMocks([AddCustomer])
 void main() {
   late AddCustomer mockAddCustomer;
-  late AddCustomerBlocBloc bloc;
+  late AddCustomerBloc bloc;
   setUp(() {
     mockAddCustomer = MockAddCustomer();
-    bloc = AddCustomerBlocBloc(addCustomer: mockAddCustomer);
+    bloc = AddCustomerBloc(addCustomer: mockAddCustomer);
   });
 
   final Customer testCustomer = Customer(

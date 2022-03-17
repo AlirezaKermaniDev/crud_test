@@ -1,4 +1,4 @@
-part of 'manage_customers_bloc_bloc.dart';
+part of 'manage_customers_bloc.dart';
 
 /// [ManageCustomersBlocEvent] hold our main customer Events.
 @freezed
@@ -10,11 +10,11 @@ class ManageCustomersBlocEvent with _$ManageCustomersBlocEvent {
   ///
   /// When user tap any [Customer]
   const factory ManageCustomersBlocEvent.customerPressed(
-      {EmailAddress emailAddress}) = _CustomerPressed;
+      EmailAddress emailAddress) = _CustomerPressed;
 
   /// For Deleting a [Customer]
   ///
   /// When user Tap delete [Customer]
   const factory ManageCustomersBlocEvent.deleteCustomerPressed(
-      {EmailAddress emailAddress}) = _DeleteCustomerPressed;
+      EmailAddress emailAddress) = _DeleteCustomerPressed;
 }

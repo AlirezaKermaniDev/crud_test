@@ -8,8 +8,8 @@ import 'package:mc_crud_test/features/crud_customer/domain/entities/mobile_numbe
 import 'package:mc_crud_test/features/crud_customer/domain/usecases/add_customer.dart';
 import 'package:mc_crud_test/features/crud_customer/domain/usecases/edit_customer.dart';
 import 'package:mc_crud_test/features/crud_customer/domain/usecases/get_customer_by_email.dart';
-import 'package:mc_crud_test/features/crud_customer/presentation/bloc/add_customer_bloc/add_customer_bloc_bloc.dart';
-import 'package:mc_crud_test/features/crud_customer/presentation/bloc/edit_customer_bloc/edit_customer_bloc_bloc.dart';
+import 'package:mc_crud_test/features/crud_customer/presentation/bloc/add_customer_bloc/add_customer_bloc.dart';
+import 'package:mc_crud_test/features/crud_customer/presentation/bloc/edit_customer_bloc/edit_customer_bloc.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
@@ -19,12 +19,12 @@ import 'edit_customer_bloc_test.mocks.dart';
 void main() {
   late EditCustomer mockEditCustomer;
   late GetCustomerByEmail mockGetCustomerByEmail;
-  late EditCustomerBlocBloc bloc;
+  late EditCustomerBloc bloc;
 
   setUp(() {
     mockEditCustomer = MockEditCustomer();
     mockGetCustomerByEmail = MockGetCustomerByEmail();
-    bloc = EditCustomerBlocBloc(
+    bloc = EditCustomerBloc(
         editCustomer: mockEditCustomer,
         getCustomerByEmail: mockGetCustomerByEmail);
   });

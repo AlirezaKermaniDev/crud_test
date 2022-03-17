@@ -12,15 +12,15 @@ part 'manage_customers_bloc_event.dart';
 part 'manage_customers_bloc_state.dart';
 part 'manage_customers_bloc_bloc.freezed.dart';
 
-/// [ManageCustomersBlocBloc] hold our BloC logics for managing customers.
+/// [ManageCustomersBloc] hold our BloC logics for managing customers.
 ///
 /// For adding customer we must pass [GetCustomerByEmail] , [GetCustomersList] & [DeleteCustomer] use cases to this bloc.
-class ManageCustomersBlocBloc
+class ManageCustomersBloc
     extends Bloc<ManageCustomersBlocEvent, ManageCustomersBlocState> {
   final GetCustomerByEmail getCustomerByEmail;
   final GetCustomersList getCustomersList;
   final DeleteCustomer deleteCustomer;
-  ManageCustomersBlocBloc({
+  ManageCustomersBloc({
     required this.getCustomerByEmail,
     required this.getCustomersList,
     required this.deleteCustomer,
@@ -33,8 +33,7 @@ class ManageCustomersBlocBloc
             isLoading: true, customerfailureOrSuccessOption: none()));
 
         /// Getting customers list from usecases.
-        final resultOfGetcustomersList =
-            await getCustomersList(params: NoParams());
+        final resultOfGetcustomersList = await getCustomersList(params: null);
 
         /// Fold the result to find out is `failrue` or `success`.
         resultOfGetcustomersList.fold((failure) {

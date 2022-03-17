@@ -1,4 +1,4 @@
-part of 'edit_customer_bloc_bloc.dart';
+part of 'edit_customer_bloc.dart';
 
 /// [EditCustomerBlocEvent] hold our edit customer Events.
 @freezed

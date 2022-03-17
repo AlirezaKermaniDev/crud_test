@@ -38,7 +38,7 @@ void main() {
         .thenAnswer((_) async => Right([testCustomer]));
 
     /// Act
-    final result = await getCustomersList(params: NoParams());
+    final result = await getCustomersList(params: null);
 
     /// Assert
     expect(result.isRight(), true);

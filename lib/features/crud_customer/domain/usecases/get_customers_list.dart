@@ -5,17 +5,14 @@ import 'package:mc_crud_test/features/crud_customer/domain/entities/customer_ent
 import 'package:mc_crud_test/features/crud_customer/domain/repositories/customer_repository.dart';
 import 'package:mc_crud_test/features/crud_customer/domain/usecases/usecase.dart';
 
-class GetCustomersList implements UseCase<List<Customer>, NoParams> {
+class GetCustomersList implements UseCase<List<Customer>, Null> {
   final CustomerRepository _customerRepository;
 
   GetCustomersList(this._customerRepository);
 
   @override
   Future<Either<CustomerFailure, List<Customer>>> call(
-      {required NoParams params}) async {
+      {required params}) async {
     return await _customerRepository.getCustomersList();
   }
 }
-
-/// This class is for the use cases that does not have any params.
-class NoParams {}

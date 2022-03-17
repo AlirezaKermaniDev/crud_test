@@ -6,58 +6,25 @@ import 'package:mc_crud_test/features/crud_customer/domain/entities/bank_account
 import 'package:mc_crud_test/features/crud_customer/domain/entities/customer_entity/customer.dart';
 import 'package:mc_crud_test/features/crud_customer/domain/entities/email_address.dart';
 import 'package:mc_crud_test/features/crud_customer/domain/entities/mobile_number.dart';
-import 'package:mc_crud_test/features/crud_customer/domain/usecases/edit_customer.dart';
-import 'package:mc_crud_test/features/crud_customer/domain/usecases/get_customer_by_email.dart';
+import 'package:mc_crud_test/features/crud_customer/domain/usecases/add_customer.dart';
 
-part 'edit_customer_bloc_event.dart';
-part 'edit_customer_bloc_state.dart';
-part 'edit_customer_bloc_bloc.freezed.dart';
+part 'add_customer_bloc_event.dart';
+part 'add_customer_bloc_state.dart';
+part 'add_customer_bloc_bloc.freezed.dart';
 
-/// [EditCustomerBlocBloc] hold our BloC logics for editing a customer.
+/// [AddCustomerBloc] hold our BloC logics for adding a customer.
 ///
-/// For adding customer we must pass [EditCustomer] & [GetCustomerByEmail] use cases to this bloc.
-class EditCustomerBlocBloc
-    extends Bloc<EditCustomerBlocEvent, EditCustomerBlocState> {
-  final EditCustomer editCustomer;
-  final GetCustomerByEmail getCustomerByEmail;
-  EditCustomerBlocBloc(
-      {required this.editCustomer, required this.getCustomerByEmail})
+/// For adding customer we must pass [AddCustomer] use case to this bloc.
+class AddCustomerBloc extends Bloc<AddCustomerBlocEvent, AddCustomerBlocState> {
+  AddCustomer addCustomer;
+  AddCustomerBloc({required this.addCustomer})
 
       /// Pass our initial State to `super` funtion to telling the bloc which state is our initial state.
-      : super(EditCustomerBlocState.initial()) {
+      : super(AddCustomerBlocState.initial()) {
     /// Here we Map our `Events` to `States`
-    on<EditCustomerBlocEvent>((event, emit) {
+    on<AddCustomerBlocEvent>((event, emit) {
       /// Map of all Events.
-      event.map(getCustomerByEmail: (e) async {
-        /// Set [isLoading] to true for showing loading widgets.
-        emit(state.copyWith(
-            isLoading: true, customerfailureOrSuccessOption: none()));
-
-        /// Getting en existing [Customer] by `email`.
-        Either<CustomerFailure, Customer> resultOfGetting =
-            await getCustomerByEmail(params: e.emailAddress.getDataOrCrash());
-
-        /// Fold the result to find out is it `failure` or `success`
-        resultOfGetting.fold((failure) {
-          /// If result was failure we show some errors
-          emit(state.copyWith(
-              isLoading: false,
-              showError: true,
-              customerfailureOrSuccessOption: Some(Left(failure))));
-        }, (customer) {
-          /// If result was successful then we replace our fields with our existing [Customer] data
-          emit(state.copyWith(
-              firstName: customer.firstname,
-              lastName: customer.lastname,
-              dateOfBirth: customer.dateOfBirth,
-              emailAddress: customer.emailAddress,
-              mobileNumber: customer.mobileNumber,
-              bankAccountNumber: customer.bankAccountNumber,
-              isLoading: false,
-              showError: false,
-              customerfailureOrSuccessOption: none()));
-        });
-      },
+      event.map(
 
           /// when [firstNameChanged] `Event` called this block of code will run.
           firstNameChanged: (e) {
@@ -78,6 +45,13 @@ class EditCustomerBlocBloc
             customerfailureOrSuccessOption: none()));
       },
 
+          /// when [emailAddressChanged] `Event` called this block of code will run.
+          emailAddressChanged: (e) {
+        emit(state.copyWith(
+            emailAddress: EmailAddress(e.emailAddress),
+            customerfailureOrSuccessOption: none()));
+      },
+
           /// when [mobileNumberChanged] `Event` called this block of code will run.
           mobileNumberChanged: (e) {
         emit(state.copyWith(
@@ -93,23 +67,23 @@ class EditCustomerBlocBloc
       },
 
           /// when [addCustomerPressed] `Event` called this block of code will run.
-          editCustomerPressed: (e) async {
+          addCustomerPressed: (e) async {
         /// Check if all params valid.
         if (isAllParamsValid()) {
-          /// Set [isLoading] to true for showing loading widgets.
+          /// Set [isAdding] to true for showing loading widgets.
           emit(state.copyWith(
-              isLoading: true, customerfailureOrSuccessOption: none()));
+              isAdding: true, customerfailureOrSuccessOption: none()));
 
           /// Make a customer with our values.
           Customer customer = customerMaker();
 
           /// add customer with use case.
           Either<CustomerFailure, Customer> resultOfAdding =
-              await editCustomer(params: customer);
+              await addCustomer(params: customer);
 
-          /// Set our result and setting [isLoading] to false
+          /// Set our result and setting [isAdding] to false
           emit(state.copyWith(
-              isLoading: false,
+              isAdding: false,
               showError: resultOfAdding.isLeft(),
               customerfailureOrSuccessOption: optionOf(resultOfAdding)));
         } else {
