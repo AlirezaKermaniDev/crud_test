@@ -13,7 +13,7 @@ part 'edit_customer_bloc_event.dart';
 part 'edit_customer_bloc_state.dart';
 part 'edit_customer_bloc_bloc.freezed.dart';
 
-/// [EditCustomerBlocBloc] hold our BloC logics for adding a customer.
+/// [EditCustomerBlocBloc] hold our BloC logics for editing a customer.
 ///
 /// For adding customer we must pass [EditCustomer] & [GetCustomerByEmail] use cases to this bloc.
 class EditCustomerBlocBloc
