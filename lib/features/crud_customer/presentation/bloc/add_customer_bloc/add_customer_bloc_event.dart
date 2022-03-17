@@ -1,6 +1,6 @@
 part of 'add_customer_bloc_bloc.dart';
 
-/// [AddCustomerBlocEvent] this is hold our Events.
+/// [AddCustomerBlocEvent] hold our add customer Events.
 @freezed
 class AddCustomerBlocEvent with _$AddCustomerBlocEvent {
   /// For when [firstName] value Changed.
@@ -13,7 +13,7 @@ class AddCustomerBlocEvent with _$AddCustomerBlocEvent {
 
   /// For when [dateOfBirth] value Changed.
   const factory AddCustomerBlocEvent.dateOfBirthChange(DateTime dateOfBirth) =
-      _BateOfBirthChange;
+      _DateOfBirthChange;
 
   /// For when [emailAddress] value Changed.
   const factory AddCustomerBlocEvent.emailAddressChanged(String emailAddress) =
@@ -25,7 +25,7 @@ class AddCustomerBlocEvent with _$AddCustomerBlocEvent {
 
   /// For when [bankAccountNumber] value Changed.
   const factory AddCustomerBlocEvent.bankAccountNumberChanged(
-      String bankAccountNumber) = _bankAccountNumberChanged;
+      String bankAccountNumber) = _BankAccountNumberChanged;
 
   /// For when add customer button Pressed.
   const factory AddCustomerBlocEvent.addCustomerPressed() = _AddCustomerPressed;

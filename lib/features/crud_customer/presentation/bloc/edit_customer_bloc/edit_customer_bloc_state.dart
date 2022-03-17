@@ -1,19 +1,19 @@
-part of 'add_customer_bloc_bloc.dart';
+part of 'edit_customer_bloc_bloc.dart';
 
-/// [AddCustomerBlocState] class is our state.
+/// [EditCustomerBlocState] class is our state.
 ///
 /// We only have one state class and we will change the variables on this clase base on our `Events` and our situation
 /// with `copyWith()` function.
 @freezed
-class AddCustomerBlocState with _$AddCustomerBlocState {
-  const factory AddCustomerBlocState({
+class EditCustomerBlocState with _$EditCustomerBlocState {
+  const factory EditCustomerBlocState({
     /// This hold [firstName] value that user Enter.
     required String firstName,
 
     /// This hold [lastName] value that user Enter.
     required String lastName,
 
-    /// This hold [bateOfBirth] value that user Enter.
+    /// This hold [bateOfBirthChange] value that user Enter.
     required DateTime dateOfBirth,
 
     /// This hold [emailAddress] value that user Enter.
@@ -34,14 +34,14 @@ class AddCustomerBlocState with _$AddCustomerBlocState {
         customerfailureOrSuccessOption,
 
     /// This is a boolean type to tell us when we have transaction with `Data Sourses`.
-    required bool isAdding,
+    required bool isLoading,
 
     /// This is for when we have some error.
     required bool showError,
-  }) = _AddCustomerBlocState;
+  }) = _EditCustomerBlocState;
 
   /// this is for when user just open the add customer page then we initial our state with some defult values.
-  factory AddCustomerBlocState.initial() => AddCustomerBlocState(
+  factory EditCustomerBlocState.initial() => EditCustomerBlocState(
         firstName: '',
         lastName: '',
         dateOfBirth: DateTime.now(),
@@ -49,7 +49,7 @@ class AddCustomerBlocState with _$AddCustomerBlocState {
         bankAccountNumber: BankAccountNumber(''),
         mobileNumber: MobileNumber(''),
         showError: false,
-        isAdding: false,
+        isLoading: false,
         customerfailureOrSuccessOption: none(),
       );
 }

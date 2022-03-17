@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'add_customer_bloc_bloc.dart';
+part of 'edit_customer_bloc_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,8 +15,14 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$AddCustomerBlocEventTearOff {
-  const _$AddCustomerBlocEventTearOff();
+class _$EditCustomerBlocEventTearOff {
+  const _$EditCustomerBlocEventTearOff();
+
+  _GetCustomerByEmail getCustomerByEmail(EmailAddress emailAddress) {
+    return _GetCustomerByEmail(
+      emailAddress,
+    );
+  }
 
   _FirstNameChanged firstNameChanged(String firstName) {
     return _FirstNameChanged(
@@ -30,15 +36,9 @@ class _$AddCustomerBlocEventTearOff {
     );
   }
 
-  _DateOfBirthChange dateOfBirthChange(DateTime dateOfBirth) {
-    return _DateOfBirthChange(
+  _BateOfBirthChange dateOfBirthChange(DateTime dateOfBirth) {
+    return _BateOfBirthChange(
       dateOfBirth,
-    );
-  }
-
-  _EmailAddressChanged emailAddressChanged(String emailAddress) {
-    return _EmailAddressChanged(
-      emailAddress,
     );
   }
 
@@ -54,103 +54,271 @@ class _$AddCustomerBlocEventTearOff {
     );
   }
 
-  _AddCustomerPressed addCustomerPressed() {
-    return const _AddCustomerPressed();
+  _EditCustomerPressed editCustomerPressed() {
+    return const _EditCustomerPressed();
   }
 }
 
 /// @nodoc
-const $AddCustomerBlocEvent = _$AddCustomerBlocEventTearOff();
+const $EditCustomerBlocEvent = _$EditCustomerBlocEventTearOff();
 
 /// @nodoc
-mixin _$AddCustomerBlocEvent {
+mixin _$EditCustomerBlocEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(EmailAddress emailAddress) getCustomerByEmail,
     required TResult Function(String firstName) firstNameChanged,
     required TResult Function(String lastName) lastNameChanged,
     required TResult Function(DateTime dateOfBirth) dateOfBirthChange,
-    required TResult Function(String emailAddress) emailAddressChanged,
     required TResult Function(String mobileNumber) mobileNumberChanged,
     required TResult Function(String bankAccountNumber)
         bankAccountNumberChanged,
-    required TResult Function() addCustomerPressed,
+    required TResult Function() editCustomerPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(EmailAddress emailAddress)? getCustomerByEmail,
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String lastName)? lastNameChanged,
     TResult Function(DateTime dateOfBirth)? dateOfBirthChange,
-    TResult Function(String emailAddress)? emailAddressChanged,
     TResult Function(String mobileNumber)? mobileNumberChanged,
     TResult Function(String bankAccountNumber)? bankAccountNumberChanged,
-    TResult Function()? addCustomerPressed,
+    TResult Function()? editCustomerPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(EmailAddress emailAddress)? getCustomerByEmail,
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String lastName)? lastNameChanged,
     TResult Function(DateTime dateOfBirth)? dateOfBirthChange,
-    TResult Function(String emailAddress)? emailAddressChanged,
     TResult Function(String mobileNumber)? mobileNumberChanged,
     TResult Function(String bankAccountNumber)? bankAccountNumberChanged,
-    TResult Function()? addCustomerPressed,
+    TResult Function()? editCustomerPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_GetCustomerByEmail value) getCustomerByEmail,
     required TResult Function(_FirstNameChanged value) firstNameChanged,
     required TResult Function(_LastNameChanged value) lastNameChanged,
-    required TResult Function(_DateOfBirthChange value) dateOfBirthChange,
-    required TResult Function(_EmailAddressChanged value) emailAddressChanged,
+    required TResult Function(_BateOfBirthChange value) dateOfBirthChange,
     required TResult Function(_MobileNumberChanged value) mobileNumberChanged,
     required TResult Function(_BankAccountNumberChanged value)
         bankAccountNumberChanged,
-    required TResult Function(_AddCustomerPressed value) addCustomerPressed,
+    required TResult Function(_EditCustomerPressed value) editCustomerPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_GetCustomerByEmail value)? getCustomerByEmail,
     TResult Function(_FirstNameChanged value)? firstNameChanged,
     TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_DateOfBirthChange value)? dateOfBirthChange,
-    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_BateOfBirthChange value)? dateOfBirthChange,
     TResult Function(_MobileNumberChanged value)? mobileNumberChanged,
     TResult Function(_BankAccountNumberChanged value)? bankAccountNumberChanged,
-    TResult Function(_AddCustomerPressed value)? addCustomerPressed,
+    TResult Function(_EditCustomerPressed value)? editCustomerPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetCustomerByEmail value)? getCustomerByEmail,
     TResult Function(_FirstNameChanged value)? firstNameChanged,
     TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_DateOfBirthChange value)? dateOfBirthChange,
-    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_BateOfBirthChange value)? dateOfBirthChange,
     TResult Function(_MobileNumberChanged value)? mobileNumberChanged,
     TResult Function(_BankAccountNumberChanged value)? bankAccountNumberChanged,
-    TResult Function(_AddCustomerPressed value)? addCustomerPressed,
+    TResult Function(_EditCustomerPressed value)? editCustomerPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AddCustomerBlocEventCopyWith<$Res> {
-  factory $AddCustomerBlocEventCopyWith(AddCustomerBlocEvent value,
-          $Res Function(AddCustomerBlocEvent) then) =
-      _$AddCustomerBlocEventCopyWithImpl<$Res>;
+abstract class $EditCustomerBlocEventCopyWith<$Res> {
+  factory $EditCustomerBlocEventCopyWith(EditCustomerBlocEvent value,
+          $Res Function(EditCustomerBlocEvent) then) =
+      _$EditCustomerBlocEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AddCustomerBlocEventCopyWithImpl<$Res>
-    implements $AddCustomerBlocEventCopyWith<$Res> {
-  _$AddCustomerBlocEventCopyWithImpl(this._value, this._then);
+class _$EditCustomerBlocEventCopyWithImpl<$Res>
+    implements $EditCustomerBlocEventCopyWith<$Res> {
+  _$EditCustomerBlocEventCopyWithImpl(this._value, this._then);
 
-  final AddCustomerBlocEvent _value;
+  final EditCustomerBlocEvent _value;
   // ignore: unused_field
-  final $Res Function(AddCustomerBlocEvent) _then;
+  final $Res Function(EditCustomerBlocEvent) _then;
+}
+
+/// @nodoc
+abstract class _$GetCustomerByEmailCopyWith<$Res> {
+  factory _$GetCustomerByEmailCopyWith(
+          _GetCustomerByEmail value, $Res Function(_GetCustomerByEmail) then) =
+      __$GetCustomerByEmailCopyWithImpl<$Res>;
+  $Res call({EmailAddress emailAddress});
+}
+
+/// @nodoc
+class __$GetCustomerByEmailCopyWithImpl<$Res>
+    extends _$EditCustomerBlocEventCopyWithImpl<$Res>
+    implements _$GetCustomerByEmailCopyWith<$Res> {
+  __$GetCustomerByEmailCopyWithImpl(
+      _GetCustomerByEmail _value, $Res Function(_GetCustomerByEmail) _then)
+      : super(_value, (v) => _then(v as _GetCustomerByEmail));
+
+  @override
+  _GetCustomerByEmail get _value => super._value as _GetCustomerByEmail;
+
+  @override
+  $Res call({
+    Object? emailAddress = freezed,
+  }) {
+    return _then(_GetCustomerByEmail(
+      emailAddress == freezed
+          ? _value.emailAddress
+          : emailAddress // ignore: cast_nullable_to_non_nullable
+              as EmailAddress,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetCustomerByEmail implements _GetCustomerByEmail {
+  const _$_GetCustomerByEmail(this.emailAddress);
+
+  @override
+  final EmailAddress emailAddress;
+
+  @override
+  String toString() {
+    return 'EditCustomerBlocEvent.getCustomerByEmail(emailAddress: $emailAddress)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _GetCustomerByEmail &&
+            const DeepCollectionEquality()
+                .equals(other.emailAddress, emailAddress));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(emailAddress));
+
+  @JsonKey(ignore: true)
+  @override
+  _$GetCustomerByEmailCopyWith<_GetCustomerByEmail> get copyWith =>
+      __$GetCustomerByEmailCopyWithImpl<_GetCustomerByEmail>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(EmailAddress emailAddress) getCustomerByEmail,
+    required TResult Function(String firstName) firstNameChanged,
+    required TResult Function(String lastName) lastNameChanged,
+    required TResult Function(DateTime dateOfBirth) dateOfBirthChange,
+    required TResult Function(String mobileNumber) mobileNumberChanged,
+    required TResult Function(String bankAccountNumber)
+        bankAccountNumberChanged,
+    required TResult Function() editCustomerPressed,
+  }) {
+    return getCustomerByEmail(emailAddress);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(EmailAddress emailAddress)? getCustomerByEmail,
+    TResult Function(String firstName)? firstNameChanged,
+    TResult Function(String lastName)? lastNameChanged,
+    TResult Function(DateTime dateOfBirth)? dateOfBirthChange,
+    TResult Function(String mobileNumber)? mobileNumberChanged,
+    TResult Function(String bankAccountNumber)? bankAccountNumberChanged,
+    TResult Function()? editCustomerPressed,
+  }) {
+    return getCustomerByEmail?.call(emailAddress);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(EmailAddress emailAddress)? getCustomerByEmail,
+    TResult Function(String firstName)? firstNameChanged,
+    TResult Function(String lastName)? lastNameChanged,
+    TResult Function(DateTime dateOfBirth)? dateOfBirthChange,
+    TResult Function(String mobileNumber)? mobileNumberChanged,
+    TResult Function(String bankAccountNumber)? bankAccountNumberChanged,
+    TResult Function()? editCustomerPressed,
+    required TResult orElse(),
+  }) {
+    if (getCustomerByEmail != null) {
+      return getCustomerByEmail(emailAddress);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetCustomerByEmail value) getCustomerByEmail,
+    required TResult Function(_FirstNameChanged value) firstNameChanged,
+    required TResult Function(_LastNameChanged value) lastNameChanged,
+    required TResult Function(_BateOfBirthChange value) dateOfBirthChange,
+    required TResult Function(_MobileNumberChanged value) mobileNumberChanged,
+    required TResult Function(_BankAccountNumberChanged value)
+        bankAccountNumberChanged,
+    required TResult Function(_EditCustomerPressed value) editCustomerPressed,
+  }) {
+    return getCustomerByEmail(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_GetCustomerByEmail value)? getCustomerByEmail,
+    TResult Function(_FirstNameChanged value)? firstNameChanged,
+    TResult Function(_LastNameChanged value)? lastNameChanged,
+    TResult Function(_BateOfBirthChange value)? dateOfBirthChange,
+    TResult Function(_MobileNumberChanged value)? mobileNumberChanged,
+    TResult Function(_BankAccountNumberChanged value)? bankAccountNumberChanged,
+    TResult Function(_EditCustomerPressed value)? editCustomerPressed,
+  }) {
+    return getCustomerByEmail?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetCustomerByEmail value)? getCustomerByEmail,
+    TResult Function(_FirstNameChanged value)? firstNameChanged,
+    TResult Function(_LastNameChanged value)? lastNameChanged,
+    TResult Function(_BateOfBirthChange value)? dateOfBirthChange,
+    TResult Function(_MobileNumberChanged value)? mobileNumberChanged,
+    TResult Function(_BankAccountNumberChanged value)? bankAccountNumberChanged,
+    TResult Function(_EditCustomerPressed value)? editCustomerPressed,
+    required TResult orElse(),
+  }) {
+    if (getCustomerByEmail != null) {
+      return getCustomerByEmail(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetCustomerByEmail implements EditCustomerBlocEvent {
+  const factory _GetCustomerByEmail(EmailAddress emailAddress) =
+      _$_GetCustomerByEmail;
+
+  EmailAddress get emailAddress;
+  @JsonKey(ignore: true)
+  _$GetCustomerByEmailCopyWith<_GetCustomerByEmail> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -163,7 +331,7 @@ abstract class _$FirstNameChangedCopyWith<$Res> {
 
 /// @nodoc
 class __$FirstNameChangedCopyWithImpl<$Res>
-    extends _$AddCustomerBlocEventCopyWithImpl<$Res>
+    extends _$EditCustomerBlocEventCopyWithImpl<$Res>
     implements _$FirstNameChangedCopyWith<$Res> {
   __$FirstNameChangedCopyWithImpl(
       _FirstNameChanged _value, $Res Function(_FirstNameChanged) _then)
@@ -195,7 +363,7 @@ class _$_FirstNameChanged implements _FirstNameChanged {
 
   @override
   String toString() {
-    return 'AddCustomerBlocEvent.firstNameChanged(firstName: $firstName)';
+    return 'EditCustomerBlocEvent.firstNameChanged(firstName: $firstName)';
   }
 
   @override
@@ -218,14 +386,14 @@ class _$_FirstNameChanged implements _FirstNameChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(EmailAddress emailAddress) getCustomerByEmail,
     required TResult Function(String firstName) firstNameChanged,
     required TResult Function(String lastName) lastNameChanged,
     required TResult Function(DateTime dateOfBirth) dateOfBirthChange,
-    required TResult Function(String emailAddress) emailAddressChanged,
     required TResult Function(String mobileNumber) mobileNumberChanged,
     required TResult Function(String bankAccountNumber)
         bankAccountNumberChanged,
-    required TResult Function() addCustomerPressed,
+    required TResult Function() editCustomerPressed,
   }) {
     return firstNameChanged(firstName);
   }
@@ -233,13 +401,13 @@ class _$_FirstNameChanged implements _FirstNameChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(EmailAddress emailAddress)? getCustomerByEmail,
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String lastName)? lastNameChanged,
     TResult Function(DateTime dateOfBirth)? dateOfBirthChange,
-    TResult Function(String emailAddress)? emailAddressChanged,
     TResult Function(String mobileNumber)? mobileNumberChanged,
     TResult Function(String bankAccountNumber)? bankAccountNumberChanged,
-    TResult Function()? addCustomerPressed,
+    TResult Function()? editCustomerPressed,
   }) {
     return firstNameChanged?.call(firstName);
   }
@@ -247,13 +415,13 @@ class _$_FirstNameChanged implements _FirstNameChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(EmailAddress emailAddress)? getCustomerByEmail,
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String lastName)? lastNameChanged,
     TResult Function(DateTime dateOfBirth)? dateOfBirthChange,
-    TResult Function(String emailAddress)? emailAddressChanged,
     TResult Function(String mobileNumber)? mobileNumberChanged,
     TResult Function(String bankAccountNumber)? bankAccountNumberChanged,
-    TResult Function()? addCustomerPressed,
+    TResult Function()? editCustomerPressed,
     required TResult orElse(),
   }) {
     if (firstNameChanged != null) {
@@ -265,14 +433,14 @@ class _$_FirstNameChanged implements _FirstNameChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_GetCustomerByEmail value) getCustomerByEmail,
     required TResult Function(_FirstNameChanged value) firstNameChanged,
     required TResult Function(_LastNameChanged value) lastNameChanged,
-    required TResult Function(_DateOfBirthChange value) dateOfBirthChange,
-    required TResult Function(_EmailAddressChanged value) emailAddressChanged,
+    required TResult Function(_BateOfBirthChange value) dateOfBirthChange,
     required TResult Function(_MobileNumberChanged value) mobileNumberChanged,
     required TResult Function(_BankAccountNumberChanged value)
         bankAccountNumberChanged,
-    required TResult Function(_AddCustomerPressed value) addCustomerPressed,
+    required TResult Function(_EditCustomerPressed value) editCustomerPressed,
   }) {
     return firstNameChanged(this);
   }
@@ -280,13 +448,13 @@ class _$_FirstNameChanged implements _FirstNameChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_GetCustomerByEmail value)? getCustomerByEmail,
     TResult Function(_FirstNameChanged value)? firstNameChanged,
     TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_DateOfBirthChange value)? dateOfBirthChange,
-    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_BateOfBirthChange value)? dateOfBirthChange,
     TResult Function(_MobileNumberChanged value)? mobileNumberChanged,
     TResult Function(_BankAccountNumberChanged value)? bankAccountNumberChanged,
-    TResult Function(_AddCustomerPressed value)? addCustomerPressed,
+    TResult Function(_EditCustomerPressed value)? editCustomerPressed,
   }) {
     return firstNameChanged?.call(this);
   }
@@ -294,13 +462,13 @@ class _$_FirstNameChanged implements _FirstNameChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetCustomerByEmail value)? getCustomerByEmail,
     TResult Function(_FirstNameChanged value)? firstNameChanged,
     TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_DateOfBirthChange value)? dateOfBirthChange,
-    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_BateOfBirthChange value)? dateOfBirthChange,
     TResult Function(_MobileNumberChanged value)? mobileNumberChanged,
     TResult Function(_BankAccountNumberChanged value)? bankAccountNumberChanged,
-    TResult Function(_AddCustomerPressed value)? addCustomerPressed,
+    TResult Function(_EditCustomerPressed value)? editCustomerPressed,
     required TResult orElse(),
   }) {
     if (firstNameChanged != null) {
@@ -310,7 +478,7 @@ class _$_FirstNameChanged implements _FirstNameChanged {
   }
 }
 
-abstract class _FirstNameChanged implements AddCustomerBlocEvent {
+abstract class _FirstNameChanged implements EditCustomerBlocEvent {
   const factory _FirstNameChanged(String firstName) = _$_FirstNameChanged;
 
   String get firstName;
@@ -329,7 +497,7 @@ abstract class _$LastNameChangedCopyWith<$Res> {
 
 /// @nodoc
 class __$LastNameChangedCopyWithImpl<$Res>
-    extends _$AddCustomerBlocEventCopyWithImpl<$Res>
+    extends _$EditCustomerBlocEventCopyWithImpl<$Res>
     implements _$LastNameChangedCopyWith<$Res> {
   __$LastNameChangedCopyWithImpl(
       _LastNameChanged _value, $Res Function(_LastNameChanged) _then)
@@ -361,7 +529,7 @@ class _$_LastNameChanged implements _LastNameChanged {
 
   @override
   String toString() {
-    return 'AddCustomerBlocEvent.lastNameChanged(lastName: $lastName)';
+    return 'EditCustomerBlocEvent.lastNameChanged(lastName: $lastName)';
   }
 
   @override
@@ -384,14 +552,14 @@ class _$_LastNameChanged implements _LastNameChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(EmailAddress emailAddress) getCustomerByEmail,
     required TResult Function(String firstName) firstNameChanged,
     required TResult Function(String lastName) lastNameChanged,
     required TResult Function(DateTime dateOfBirth) dateOfBirthChange,
-    required TResult Function(String emailAddress) emailAddressChanged,
     required TResult Function(String mobileNumber) mobileNumberChanged,
     required TResult Function(String bankAccountNumber)
         bankAccountNumberChanged,
-    required TResult Function() addCustomerPressed,
+    required TResult Function() editCustomerPressed,
   }) {
     return lastNameChanged(lastName);
   }
@@ -399,13 +567,13 @@ class _$_LastNameChanged implements _LastNameChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(EmailAddress emailAddress)? getCustomerByEmail,
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String lastName)? lastNameChanged,
     TResult Function(DateTime dateOfBirth)? dateOfBirthChange,
-    TResult Function(String emailAddress)? emailAddressChanged,
     TResult Function(String mobileNumber)? mobileNumberChanged,
     TResult Function(String bankAccountNumber)? bankAccountNumberChanged,
-    TResult Function()? addCustomerPressed,
+    TResult Function()? editCustomerPressed,
   }) {
     return lastNameChanged?.call(lastName);
   }
@@ -413,13 +581,13 @@ class _$_LastNameChanged implements _LastNameChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(EmailAddress emailAddress)? getCustomerByEmail,
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String lastName)? lastNameChanged,
     TResult Function(DateTime dateOfBirth)? dateOfBirthChange,
-    TResult Function(String emailAddress)? emailAddressChanged,
     TResult Function(String mobileNumber)? mobileNumberChanged,
     TResult Function(String bankAccountNumber)? bankAccountNumberChanged,
-    TResult Function()? addCustomerPressed,
+    TResult Function()? editCustomerPressed,
     required TResult orElse(),
   }) {
     if (lastNameChanged != null) {
@@ -431,14 +599,14 @@ class _$_LastNameChanged implements _LastNameChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_GetCustomerByEmail value) getCustomerByEmail,
     required TResult Function(_FirstNameChanged value) firstNameChanged,
     required TResult Function(_LastNameChanged value) lastNameChanged,
-    required TResult Function(_DateOfBirthChange value) dateOfBirthChange,
-    required TResult Function(_EmailAddressChanged value) emailAddressChanged,
+    required TResult Function(_BateOfBirthChange value) dateOfBirthChange,
     required TResult Function(_MobileNumberChanged value) mobileNumberChanged,
     required TResult Function(_BankAccountNumberChanged value)
         bankAccountNumberChanged,
-    required TResult Function(_AddCustomerPressed value) addCustomerPressed,
+    required TResult Function(_EditCustomerPressed value) editCustomerPressed,
   }) {
     return lastNameChanged(this);
   }
@@ -446,13 +614,13 @@ class _$_LastNameChanged implements _LastNameChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_GetCustomerByEmail value)? getCustomerByEmail,
     TResult Function(_FirstNameChanged value)? firstNameChanged,
     TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_DateOfBirthChange value)? dateOfBirthChange,
-    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_BateOfBirthChange value)? dateOfBirthChange,
     TResult Function(_MobileNumberChanged value)? mobileNumberChanged,
     TResult Function(_BankAccountNumberChanged value)? bankAccountNumberChanged,
-    TResult Function(_AddCustomerPressed value)? addCustomerPressed,
+    TResult Function(_EditCustomerPressed value)? editCustomerPressed,
   }) {
     return lastNameChanged?.call(this);
   }
@@ -460,13 +628,13 @@ class _$_LastNameChanged implements _LastNameChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetCustomerByEmail value)? getCustomerByEmail,
     TResult Function(_FirstNameChanged value)? firstNameChanged,
     TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_DateOfBirthChange value)? dateOfBirthChange,
-    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_BateOfBirthChange value)? dateOfBirthChange,
     TResult Function(_MobileNumberChanged value)? mobileNumberChanged,
     TResult Function(_BankAccountNumberChanged value)? bankAccountNumberChanged,
-    TResult Function(_AddCustomerPressed value)? addCustomerPressed,
+    TResult Function(_EditCustomerPressed value)? editCustomerPressed,
     required TResult orElse(),
   }) {
     if (lastNameChanged != null) {
@@ -476,7 +644,7 @@ class _$_LastNameChanged implements _LastNameChanged {
   }
 }
 
-abstract class _LastNameChanged implements AddCustomerBlocEvent {
+abstract class _LastNameChanged implements EditCustomerBlocEvent {
   const factory _LastNameChanged(String lastName) = _$_LastNameChanged;
 
   String get lastName;
@@ -486,29 +654,29 @@ abstract class _LastNameChanged implements AddCustomerBlocEvent {
 }
 
 /// @nodoc
-abstract class _$DateOfBirthChangeCopyWith<$Res> {
-  factory _$DateOfBirthChangeCopyWith(
-          _DateOfBirthChange value, $Res Function(_DateOfBirthChange) then) =
-      __$DateOfBirthChangeCopyWithImpl<$Res>;
+abstract class _$BateOfBirthChangeCopyWith<$Res> {
+  factory _$BateOfBirthChangeCopyWith(
+          _BateOfBirthChange value, $Res Function(_BateOfBirthChange) then) =
+      __$BateOfBirthChangeCopyWithImpl<$Res>;
   $Res call({DateTime dateOfBirth});
 }
 
 /// @nodoc
-class __$DateOfBirthChangeCopyWithImpl<$Res>
-    extends _$AddCustomerBlocEventCopyWithImpl<$Res>
-    implements _$DateOfBirthChangeCopyWith<$Res> {
-  __$DateOfBirthChangeCopyWithImpl(
-      _DateOfBirthChange _value, $Res Function(_DateOfBirthChange) _then)
-      : super(_value, (v) => _then(v as _DateOfBirthChange));
+class __$BateOfBirthChangeCopyWithImpl<$Res>
+    extends _$EditCustomerBlocEventCopyWithImpl<$Res>
+    implements _$BateOfBirthChangeCopyWith<$Res> {
+  __$BateOfBirthChangeCopyWithImpl(
+      _BateOfBirthChange _value, $Res Function(_BateOfBirthChange) _then)
+      : super(_value, (v) => _then(v as _BateOfBirthChange));
 
   @override
-  _DateOfBirthChange get _value => super._value as _DateOfBirthChange;
+  _BateOfBirthChange get _value => super._value as _BateOfBirthChange;
 
   @override
   $Res call({
     Object? dateOfBirth = freezed,
   }) {
-    return _then(_DateOfBirthChange(
+    return _then(_BateOfBirthChange(
       dateOfBirth == freezed
           ? _value.dateOfBirth
           : dateOfBirth // ignore: cast_nullable_to_non_nullable
@@ -519,22 +687,22 @@ class __$DateOfBirthChangeCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DateOfBirthChange implements _DateOfBirthChange {
-  const _$_DateOfBirthChange(this.dateOfBirth);
+class _$_BateOfBirthChange implements _BateOfBirthChange {
+  const _$_BateOfBirthChange(this.dateOfBirth);
 
   @override
   final DateTime dateOfBirth;
 
   @override
   String toString() {
-    return 'AddCustomerBlocEvent.dateOfBirthChange(dateOfBirth: $dateOfBirth)';
+    return 'EditCustomerBlocEvent.dateOfBirthChange(dateOfBirth: $dateOfBirth)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _DateOfBirthChange &&
+            other is _BateOfBirthChange &&
             const DeepCollectionEquality()
                 .equals(other.dateOfBirth, dateOfBirth));
   }
@@ -545,20 +713,20 @@ class _$_DateOfBirthChange implements _DateOfBirthChange {
 
   @JsonKey(ignore: true)
   @override
-  _$DateOfBirthChangeCopyWith<_DateOfBirthChange> get copyWith =>
-      __$DateOfBirthChangeCopyWithImpl<_DateOfBirthChange>(this, _$identity);
+  _$BateOfBirthChangeCopyWith<_BateOfBirthChange> get copyWith =>
+      __$BateOfBirthChangeCopyWithImpl<_BateOfBirthChange>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(EmailAddress emailAddress) getCustomerByEmail,
     required TResult Function(String firstName) firstNameChanged,
     required TResult Function(String lastName) lastNameChanged,
     required TResult Function(DateTime dateOfBirth) dateOfBirthChange,
-    required TResult Function(String emailAddress) emailAddressChanged,
     required TResult Function(String mobileNumber) mobileNumberChanged,
     required TResult Function(String bankAccountNumber)
         bankAccountNumberChanged,
-    required TResult Function() addCustomerPressed,
+    required TResult Function() editCustomerPressed,
   }) {
     return dateOfBirthChange(dateOfBirth);
   }
@@ -566,13 +734,13 @@ class _$_DateOfBirthChange implements _DateOfBirthChange {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(EmailAddress emailAddress)? getCustomerByEmail,
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String lastName)? lastNameChanged,
     TResult Function(DateTime dateOfBirth)? dateOfBirthChange,
-    TResult Function(String emailAddress)? emailAddressChanged,
     TResult Function(String mobileNumber)? mobileNumberChanged,
     TResult Function(String bankAccountNumber)? bankAccountNumberChanged,
-    TResult Function()? addCustomerPressed,
+    TResult Function()? editCustomerPressed,
   }) {
     return dateOfBirthChange?.call(dateOfBirth);
   }
@@ -580,13 +748,13 @@ class _$_DateOfBirthChange implements _DateOfBirthChange {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(EmailAddress emailAddress)? getCustomerByEmail,
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String lastName)? lastNameChanged,
     TResult Function(DateTime dateOfBirth)? dateOfBirthChange,
-    TResult Function(String emailAddress)? emailAddressChanged,
     TResult Function(String mobileNumber)? mobileNumberChanged,
     TResult Function(String bankAccountNumber)? bankAccountNumberChanged,
-    TResult Function()? addCustomerPressed,
+    TResult Function()? editCustomerPressed,
     required TResult orElse(),
   }) {
     if (dateOfBirthChange != null) {
@@ -598,14 +766,14 @@ class _$_DateOfBirthChange implements _DateOfBirthChange {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_GetCustomerByEmail value) getCustomerByEmail,
     required TResult Function(_FirstNameChanged value) firstNameChanged,
     required TResult Function(_LastNameChanged value) lastNameChanged,
-    required TResult Function(_DateOfBirthChange value) dateOfBirthChange,
-    required TResult Function(_EmailAddressChanged value) emailAddressChanged,
+    required TResult Function(_BateOfBirthChange value) dateOfBirthChange,
     required TResult Function(_MobileNumberChanged value) mobileNumberChanged,
     required TResult Function(_BankAccountNumberChanged value)
         bankAccountNumberChanged,
-    required TResult Function(_AddCustomerPressed value) addCustomerPressed,
+    required TResult Function(_EditCustomerPressed value) editCustomerPressed,
   }) {
     return dateOfBirthChange(this);
   }
@@ -613,13 +781,13 @@ class _$_DateOfBirthChange implements _DateOfBirthChange {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_GetCustomerByEmail value)? getCustomerByEmail,
     TResult Function(_FirstNameChanged value)? firstNameChanged,
     TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_DateOfBirthChange value)? dateOfBirthChange,
-    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_BateOfBirthChange value)? dateOfBirthChange,
     TResult Function(_MobileNumberChanged value)? mobileNumberChanged,
     TResult Function(_BankAccountNumberChanged value)? bankAccountNumberChanged,
-    TResult Function(_AddCustomerPressed value)? addCustomerPressed,
+    TResult Function(_EditCustomerPressed value)? editCustomerPressed,
   }) {
     return dateOfBirthChange?.call(this);
   }
@@ -627,13 +795,13 @@ class _$_DateOfBirthChange implements _DateOfBirthChange {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetCustomerByEmail value)? getCustomerByEmail,
     TResult Function(_FirstNameChanged value)? firstNameChanged,
     TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_DateOfBirthChange value)? dateOfBirthChange,
-    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_BateOfBirthChange value)? dateOfBirthChange,
     TResult Function(_MobileNumberChanged value)? mobileNumberChanged,
     TResult Function(_BankAccountNumberChanged value)? bankAccountNumberChanged,
-    TResult Function(_AddCustomerPressed value)? addCustomerPressed,
+    TResult Function(_EditCustomerPressed value)? editCustomerPressed,
     required TResult orElse(),
   }) {
     if (dateOfBirthChange != null) {
@@ -643,181 +811,12 @@ class _$_DateOfBirthChange implements _DateOfBirthChange {
   }
 }
 
-abstract class _DateOfBirthChange implements AddCustomerBlocEvent {
-  const factory _DateOfBirthChange(DateTime dateOfBirth) = _$_DateOfBirthChange;
+abstract class _BateOfBirthChange implements EditCustomerBlocEvent {
+  const factory _BateOfBirthChange(DateTime dateOfBirth) = _$_BateOfBirthChange;
 
   DateTime get dateOfBirth;
   @JsonKey(ignore: true)
-  _$DateOfBirthChangeCopyWith<_DateOfBirthChange> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$EmailAddressChangedCopyWith<$Res> {
-  factory _$EmailAddressChangedCopyWith(_EmailAddressChanged value,
-          $Res Function(_EmailAddressChanged) then) =
-      __$EmailAddressChangedCopyWithImpl<$Res>;
-  $Res call({String emailAddress});
-}
-
-/// @nodoc
-class __$EmailAddressChangedCopyWithImpl<$Res>
-    extends _$AddCustomerBlocEventCopyWithImpl<$Res>
-    implements _$EmailAddressChangedCopyWith<$Res> {
-  __$EmailAddressChangedCopyWithImpl(
-      _EmailAddressChanged _value, $Res Function(_EmailAddressChanged) _then)
-      : super(_value, (v) => _then(v as _EmailAddressChanged));
-
-  @override
-  _EmailAddressChanged get _value => super._value as _EmailAddressChanged;
-
-  @override
-  $Res call({
-    Object? emailAddress = freezed,
-  }) {
-    return _then(_EmailAddressChanged(
-      emailAddress == freezed
-          ? _value.emailAddress
-          : emailAddress // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_EmailAddressChanged implements _EmailAddressChanged {
-  const _$_EmailAddressChanged(this.emailAddress);
-
-  @override
-  final String emailAddress;
-
-  @override
-  String toString() {
-    return 'AddCustomerBlocEvent.emailAddressChanged(emailAddress: $emailAddress)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _EmailAddressChanged &&
-            const DeepCollectionEquality()
-                .equals(other.emailAddress, emailAddress));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(emailAddress));
-
-  @JsonKey(ignore: true)
-  @override
-  _$EmailAddressChangedCopyWith<_EmailAddressChanged> get copyWith =>
-      __$EmailAddressChangedCopyWithImpl<_EmailAddressChanged>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String firstName) firstNameChanged,
-    required TResult Function(String lastName) lastNameChanged,
-    required TResult Function(DateTime dateOfBirth) dateOfBirthChange,
-    required TResult Function(String emailAddress) emailAddressChanged,
-    required TResult Function(String mobileNumber) mobileNumberChanged,
-    required TResult Function(String bankAccountNumber)
-        bankAccountNumberChanged,
-    required TResult Function() addCustomerPressed,
-  }) {
-    return emailAddressChanged(emailAddress);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String firstName)? firstNameChanged,
-    TResult Function(String lastName)? lastNameChanged,
-    TResult Function(DateTime dateOfBirth)? dateOfBirthChange,
-    TResult Function(String emailAddress)? emailAddressChanged,
-    TResult Function(String mobileNumber)? mobileNumberChanged,
-    TResult Function(String bankAccountNumber)? bankAccountNumberChanged,
-    TResult Function()? addCustomerPressed,
-  }) {
-    return emailAddressChanged?.call(emailAddress);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String firstName)? firstNameChanged,
-    TResult Function(String lastName)? lastNameChanged,
-    TResult Function(DateTime dateOfBirth)? dateOfBirthChange,
-    TResult Function(String emailAddress)? emailAddressChanged,
-    TResult Function(String mobileNumber)? mobileNumberChanged,
-    TResult Function(String bankAccountNumber)? bankAccountNumberChanged,
-    TResult Function()? addCustomerPressed,
-    required TResult orElse(),
-  }) {
-    if (emailAddressChanged != null) {
-      return emailAddressChanged(emailAddress);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_FirstNameChanged value) firstNameChanged,
-    required TResult Function(_LastNameChanged value) lastNameChanged,
-    required TResult Function(_DateOfBirthChange value) dateOfBirthChange,
-    required TResult Function(_EmailAddressChanged value) emailAddressChanged,
-    required TResult Function(_MobileNumberChanged value) mobileNumberChanged,
-    required TResult Function(_BankAccountNumberChanged value)
-        bankAccountNumberChanged,
-    required TResult Function(_AddCustomerPressed value) addCustomerPressed,
-  }) {
-    return emailAddressChanged(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_DateOfBirthChange value)? dateOfBirthChange,
-    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
-    TResult Function(_MobileNumberChanged value)? mobileNumberChanged,
-    TResult Function(_BankAccountNumberChanged value)? bankAccountNumberChanged,
-    TResult Function(_AddCustomerPressed value)? addCustomerPressed,
-  }) {
-    return emailAddressChanged?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FirstNameChanged value)? firstNameChanged,
-    TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_DateOfBirthChange value)? dateOfBirthChange,
-    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
-    TResult Function(_MobileNumberChanged value)? mobileNumberChanged,
-    TResult Function(_BankAccountNumberChanged value)? bankAccountNumberChanged,
-    TResult Function(_AddCustomerPressed value)? addCustomerPressed,
-    required TResult orElse(),
-  }) {
-    if (emailAddressChanged != null) {
-      return emailAddressChanged(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _EmailAddressChanged implements AddCustomerBlocEvent {
-  const factory _EmailAddressChanged(String emailAddress) =
-      _$_EmailAddressChanged;
-
-  String get emailAddress;
-  @JsonKey(ignore: true)
-  _$EmailAddressChangedCopyWith<_EmailAddressChanged> get copyWith =>
+  _$BateOfBirthChangeCopyWith<_BateOfBirthChange> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -831,7 +830,7 @@ abstract class _$MobileNumberChangedCopyWith<$Res> {
 
 /// @nodoc
 class __$MobileNumberChangedCopyWithImpl<$Res>
-    extends _$AddCustomerBlocEventCopyWithImpl<$Res>
+    extends _$EditCustomerBlocEventCopyWithImpl<$Res>
     implements _$MobileNumberChangedCopyWith<$Res> {
   __$MobileNumberChangedCopyWithImpl(
       _MobileNumberChanged _value, $Res Function(_MobileNumberChanged) _then)
@@ -863,7 +862,7 @@ class _$_MobileNumberChanged implements _MobileNumberChanged {
 
   @override
   String toString() {
-    return 'AddCustomerBlocEvent.mobileNumberChanged(mobileNumber: $mobileNumber)';
+    return 'EditCustomerBlocEvent.mobileNumberChanged(mobileNumber: $mobileNumber)';
   }
 
   @override
@@ -888,14 +887,14 @@ class _$_MobileNumberChanged implements _MobileNumberChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(EmailAddress emailAddress) getCustomerByEmail,
     required TResult Function(String firstName) firstNameChanged,
     required TResult Function(String lastName) lastNameChanged,
     required TResult Function(DateTime dateOfBirth) dateOfBirthChange,
-    required TResult Function(String emailAddress) emailAddressChanged,
     required TResult Function(String mobileNumber) mobileNumberChanged,
     required TResult Function(String bankAccountNumber)
         bankAccountNumberChanged,
-    required TResult Function() addCustomerPressed,
+    required TResult Function() editCustomerPressed,
   }) {
     return mobileNumberChanged(mobileNumber);
   }
@@ -903,13 +902,13 @@ class _$_MobileNumberChanged implements _MobileNumberChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(EmailAddress emailAddress)? getCustomerByEmail,
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String lastName)? lastNameChanged,
     TResult Function(DateTime dateOfBirth)? dateOfBirthChange,
-    TResult Function(String emailAddress)? emailAddressChanged,
     TResult Function(String mobileNumber)? mobileNumberChanged,
     TResult Function(String bankAccountNumber)? bankAccountNumberChanged,
-    TResult Function()? addCustomerPressed,
+    TResult Function()? editCustomerPressed,
   }) {
     return mobileNumberChanged?.call(mobileNumber);
   }
@@ -917,13 +916,13 @@ class _$_MobileNumberChanged implements _MobileNumberChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(EmailAddress emailAddress)? getCustomerByEmail,
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String lastName)? lastNameChanged,
     TResult Function(DateTime dateOfBirth)? dateOfBirthChange,
-    TResult Function(String emailAddress)? emailAddressChanged,
     TResult Function(String mobileNumber)? mobileNumberChanged,
     TResult Function(String bankAccountNumber)? bankAccountNumberChanged,
-    TResult Function()? addCustomerPressed,
+    TResult Function()? editCustomerPressed,
     required TResult orElse(),
   }) {
     if (mobileNumberChanged != null) {
@@ -935,14 +934,14 @@ class _$_MobileNumberChanged implements _MobileNumberChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_GetCustomerByEmail value) getCustomerByEmail,
     required TResult Function(_FirstNameChanged value) firstNameChanged,
     required TResult Function(_LastNameChanged value) lastNameChanged,
-    required TResult Function(_DateOfBirthChange value) dateOfBirthChange,
-    required TResult Function(_EmailAddressChanged value) emailAddressChanged,
+    required TResult Function(_BateOfBirthChange value) dateOfBirthChange,
     required TResult Function(_MobileNumberChanged value) mobileNumberChanged,
     required TResult Function(_BankAccountNumberChanged value)
         bankAccountNumberChanged,
-    required TResult Function(_AddCustomerPressed value) addCustomerPressed,
+    required TResult Function(_EditCustomerPressed value) editCustomerPressed,
   }) {
     return mobileNumberChanged(this);
   }
@@ -950,13 +949,13 @@ class _$_MobileNumberChanged implements _MobileNumberChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_GetCustomerByEmail value)? getCustomerByEmail,
     TResult Function(_FirstNameChanged value)? firstNameChanged,
     TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_DateOfBirthChange value)? dateOfBirthChange,
-    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_BateOfBirthChange value)? dateOfBirthChange,
     TResult Function(_MobileNumberChanged value)? mobileNumberChanged,
     TResult Function(_BankAccountNumberChanged value)? bankAccountNumberChanged,
-    TResult Function(_AddCustomerPressed value)? addCustomerPressed,
+    TResult Function(_EditCustomerPressed value)? editCustomerPressed,
   }) {
     return mobileNumberChanged?.call(this);
   }
@@ -964,13 +963,13 @@ class _$_MobileNumberChanged implements _MobileNumberChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetCustomerByEmail value)? getCustomerByEmail,
     TResult Function(_FirstNameChanged value)? firstNameChanged,
     TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_DateOfBirthChange value)? dateOfBirthChange,
-    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_BateOfBirthChange value)? dateOfBirthChange,
     TResult Function(_MobileNumberChanged value)? mobileNumberChanged,
     TResult Function(_BankAccountNumberChanged value)? bankAccountNumberChanged,
-    TResult Function(_AddCustomerPressed value)? addCustomerPressed,
+    TResult Function(_EditCustomerPressed value)? editCustomerPressed,
     required TResult orElse(),
   }) {
     if (mobileNumberChanged != null) {
@@ -980,7 +979,7 @@ class _$_MobileNumberChanged implements _MobileNumberChanged {
   }
 }
 
-abstract class _MobileNumberChanged implements AddCustomerBlocEvent {
+abstract class _MobileNumberChanged implements EditCustomerBlocEvent {
   const factory _MobileNumberChanged(String mobileNumber) =
       _$_MobileNumberChanged;
 
@@ -1000,7 +999,7 @@ abstract class _$BankAccountNumberChangedCopyWith<$Res> {
 
 /// @nodoc
 class __$BankAccountNumberChangedCopyWithImpl<$Res>
-    extends _$AddCustomerBlocEventCopyWithImpl<$Res>
+    extends _$EditCustomerBlocEventCopyWithImpl<$Res>
     implements _$BankAccountNumberChangedCopyWith<$Res> {
   __$BankAccountNumberChangedCopyWithImpl(_BankAccountNumberChanged _value,
       $Res Function(_BankAccountNumberChanged) _then)
@@ -1033,7 +1032,7 @@ class _$_BankAccountNumberChanged implements _BankAccountNumberChanged {
 
   @override
   String toString() {
-    return 'AddCustomerBlocEvent.bankAccountNumberChanged(bankAccountNumber: $bankAccountNumber)';
+    return 'EditCustomerBlocEvent.bankAccountNumberChanged(bankAccountNumber: $bankAccountNumber)';
   }
 
   @override
@@ -1058,14 +1057,14 @@ class _$_BankAccountNumberChanged implements _BankAccountNumberChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(EmailAddress emailAddress) getCustomerByEmail,
     required TResult Function(String firstName) firstNameChanged,
     required TResult Function(String lastName) lastNameChanged,
     required TResult Function(DateTime dateOfBirth) dateOfBirthChange,
-    required TResult Function(String emailAddress) emailAddressChanged,
     required TResult Function(String mobileNumber) mobileNumberChanged,
     required TResult Function(String bankAccountNumber)
         bankAccountNumberChanged,
-    required TResult Function() addCustomerPressed,
+    required TResult Function() editCustomerPressed,
   }) {
     return bankAccountNumberChanged(bankAccountNumber);
   }
@@ -1073,13 +1072,13 @@ class _$_BankAccountNumberChanged implements _BankAccountNumberChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(EmailAddress emailAddress)? getCustomerByEmail,
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String lastName)? lastNameChanged,
     TResult Function(DateTime dateOfBirth)? dateOfBirthChange,
-    TResult Function(String emailAddress)? emailAddressChanged,
     TResult Function(String mobileNumber)? mobileNumberChanged,
     TResult Function(String bankAccountNumber)? bankAccountNumberChanged,
-    TResult Function()? addCustomerPressed,
+    TResult Function()? editCustomerPressed,
   }) {
     return bankAccountNumberChanged?.call(bankAccountNumber);
   }
@@ -1087,13 +1086,13 @@ class _$_BankAccountNumberChanged implements _BankAccountNumberChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(EmailAddress emailAddress)? getCustomerByEmail,
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String lastName)? lastNameChanged,
     TResult Function(DateTime dateOfBirth)? dateOfBirthChange,
-    TResult Function(String emailAddress)? emailAddressChanged,
     TResult Function(String mobileNumber)? mobileNumberChanged,
     TResult Function(String bankAccountNumber)? bankAccountNumberChanged,
-    TResult Function()? addCustomerPressed,
+    TResult Function()? editCustomerPressed,
     required TResult orElse(),
   }) {
     if (bankAccountNumberChanged != null) {
@@ -1105,14 +1104,14 @@ class _$_BankAccountNumberChanged implements _BankAccountNumberChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_GetCustomerByEmail value) getCustomerByEmail,
     required TResult Function(_FirstNameChanged value) firstNameChanged,
     required TResult Function(_LastNameChanged value) lastNameChanged,
-    required TResult Function(_DateOfBirthChange value) dateOfBirthChange,
-    required TResult Function(_EmailAddressChanged value) emailAddressChanged,
+    required TResult Function(_BateOfBirthChange value) dateOfBirthChange,
     required TResult Function(_MobileNumberChanged value) mobileNumberChanged,
     required TResult Function(_BankAccountNumberChanged value)
         bankAccountNumberChanged,
-    required TResult Function(_AddCustomerPressed value) addCustomerPressed,
+    required TResult Function(_EditCustomerPressed value) editCustomerPressed,
   }) {
     return bankAccountNumberChanged(this);
   }
@@ -1120,13 +1119,13 @@ class _$_BankAccountNumberChanged implements _BankAccountNumberChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_GetCustomerByEmail value)? getCustomerByEmail,
     TResult Function(_FirstNameChanged value)? firstNameChanged,
     TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_DateOfBirthChange value)? dateOfBirthChange,
-    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_BateOfBirthChange value)? dateOfBirthChange,
     TResult Function(_MobileNumberChanged value)? mobileNumberChanged,
     TResult Function(_BankAccountNumberChanged value)? bankAccountNumberChanged,
-    TResult Function(_AddCustomerPressed value)? addCustomerPressed,
+    TResult Function(_EditCustomerPressed value)? editCustomerPressed,
   }) {
     return bankAccountNumberChanged?.call(this);
   }
@@ -1134,13 +1133,13 @@ class _$_BankAccountNumberChanged implements _BankAccountNumberChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetCustomerByEmail value)? getCustomerByEmail,
     TResult Function(_FirstNameChanged value)? firstNameChanged,
     TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_DateOfBirthChange value)? dateOfBirthChange,
-    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_BateOfBirthChange value)? dateOfBirthChange,
     TResult Function(_MobileNumberChanged value)? mobileNumberChanged,
     TResult Function(_BankAccountNumberChanged value)? bankAccountNumberChanged,
-    TResult Function(_AddCustomerPressed value)? addCustomerPressed,
+    TResult Function(_EditCustomerPressed value)? editCustomerPressed,
     required TResult orElse(),
   }) {
     if (bankAccountNumberChanged != null) {
@@ -1150,7 +1149,7 @@ class _$_BankAccountNumberChanged implements _BankAccountNumberChanged {
   }
 }
 
-abstract class _BankAccountNumberChanged implements AddCustomerBlocEvent {
+abstract class _BankAccountNumberChanged implements EditCustomerBlocEvent {
   const factory _BankAccountNumberChanged(String bankAccountNumber) =
       _$_BankAccountNumberChanged;
 
@@ -1161,38 +1160,38 @@ abstract class _BankAccountNumberChanged implements AddCustomerBlocEvent {
 }
 
 /// @nodoc
-abstract class _$AddCustomerPressedCopyWith<$Res> {
-  factory _$AddCustomerPressedCopyWith(
-          _AddCustomerPressed value, $Res Function(_AddCustomerPressed) then) =
-      __$AddCustomerPressedCopyWithImpl<$Res>;
+abstract class _$EditCustomerPressedCopyWith<$Res> {
+  factory _$EditCustomerPressedCopyWith(_EditCustomerPressed value,
+          $Res Function(_EditCustomerPressed) then) =
+      __$EditCustomerPressedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$AddCustomerPressedCopyWithImpl<$Res>
-    extends _$AddCustomerBlocEventCopyWithImpl<$Res>
-    implements _$AddCustomerPressedCopyWith<$Res> {
-  __$AddCustomerPressedCopyWithImpl(
-      _AddCustomerPressed _value, $Res Function(_AddCustomerPressed) _then)
-      : super(_value, (v) => _then(v as _AddCustomerPressed));
+class __$EditCustomerPressedCopyWithImpl<$Res>
+    extends _$EditCustomerBlocEventCopyWithImpl<$Res>
+    implements _$EditCustomerPressedCopyWith<$Res> {
+  __$EditCustomerPressedCopyWithImpl(
+      _EditCustomerPressed _value, $Res Function(_EditCustomerPressed) _then)
+      : super(_value, (v) => _then(v as _EditCustomerPressed));
 
   @override
-  _AddCustomerPressed get _value => super._value as _AddCustomerPressed;
+  _EditCustomerPressed get _value => super._value as _EditCustomerPressed;
 }
 
 /// @nodoc
 
-class _$_AddCustomerPressed implements _AddCustomerPressed {
-  const _$_AddCustomerPressed();
+class _$_EditCustomerPressed implements _EditCustomerPressed {
+  const _$_EditCustomerPressed();
 
   @override
   String toString() {
-    return 'AddCustomerBlocEvent.addCustomerPressed()';
+    return 'EditCustomerBlocEvent.editCustomerPressed()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _AddCustomerPressed);
+        (other.runtimeType == runtimeType && other is _EditCustomerPressed);
   }
 
   @override
@@ -1201,46 +1200,46 @@ class _$_AddCustomerPressed implements _AddCustomerPressed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(EmailAddress emailAddress) getCustomerByEmail,
     required TResult Function(String firstName) firstNameChanged,
     required TResult Function(String lastName) lastNameChanged,
     required TResult Function(DateTime dateOfBirth) dateOfBirthChange,
-    required TResult Function(String emailAddress) emailAddressChanged,
     required TResult Function(String mobileNumber) mobileNumberChanged,
     required TResult Function(String bankAccountNumber)
         bankAccountNumberChanged,
-    required TResult Function() addCustomerPressed,
+    required TResult Function() editCustomerPressed,
   }) {
-    return addCustomerPressed();
+    return editCustomerPressed();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(EmailAddress emailAddress)? getCustomerByEmail,
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String lastName)? lastNameChanged,
     TResult Function(DateTime dateOfBirth)? dateOfBirthChange,
-    TResult Function(String emailAddress)? emailAddressChanged,
     TResult Function(String mobileNumber)? mobileNumberChanged,
     TResult Function(String bankAccountNumber)? bankAccountNumberChanged,
-    TResult Function()? addCustomerPressed,
+    TResult Function()? editCustomerPressed,
   }) {
-    return addCustomerPressed?.call();
+    return editCustomerPressed?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(EmailAddress emailAddress)? getCustomerByEmail,
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String lastName)? lastNameChanged,
     TResult Function(DateTime dateOfBirth)? dateOfBirthChange,
-    TResult Function(String emailAddress)? emailAddressChanged,
     TResult Function(String mobileNumber)? mobileNumberChanged,
     TResult Function(String bankAccountNumber)? bankAccountNumberChanged,
-    TResult Function()? addCustomerPressed,
+    TResult Function()? editCustomerPressed,
     required TResult orElse(),
   }) {
-    if (addCustomerPressed != null) {
-      return addCustomerPressed();
+    if (editCustomerPressed != null) {
+      return editCustomerPressed();
     }
     return orElse();
   }
@@ -1248,60 +1247,60 @@ class _$_AddCustomerPressed implements _AddCustomerPressed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_GetCustomerByEmail value) getCustomerByEmail,
     required TResult Function(_FirstNameChanged value) firstNameChanged,
     required TResult Function(_LastNameChanged value) lastNameChanged,
-    required TResult Function(_DateOfBirthChange value) dateOfBirthChange,
-    required TResult Function(_EmailAddressChanged value) emailAddressChanged,
+    required TResult Function(_BateOfBirthChange value) dateOfBirthChange,
     required TResult Function(_MobileNumberChanged value) mobileNumberChanged,
     required TResult Function(_BankAccountNumberChanged value)
         bankAccountNumberChanged,
-    required TResult Function(_AddCustomerPressed value) addCustomerPressed,
+    required TResult Function(_EditCustomerPressed value) editCustomerPressed,
   }) {
-    return addCustomerPressed(this);
+    return editCustomerPressed(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_GetCustomerByEmail value)? getCustomerByEmail,
     TResult Function(_FirstNameChanged value)? firstNameChanged,
     TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_DateOfBirthChange value)? dateOfBirthChange,
-    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_BateOfBirthChange value)? dateOfBirthChange,
     TResult Function(_MobileNumberChanged value)? mobileNumberChanged,
     TResult Function(_BankAccountNumberChanged value)? bankAccountNumberChanged,
-    TResult Function(_AddCustomerPressed value)? addCustomerPressed,
+    TResult Function(_EditCustomerPressed value)? editCustomerPressed,
   }) {
-    return addCustomerPressed?.call(this);
+    return editCustomerPressed?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetCustomerByEmail value)? getCustomerByEmail,
     TResult Function(_FirstNameChanged value)? firstNameChanged,
     TResult Function(_LastNameChanged value)? lastNameChanged,
-    TResult Function(_DateOfBirthChange value)? dateOfBirthChange,
-    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_BateOfBirthChange value)? dateOfBirthChange,
     TResult Function(_MobileNumberChanged value)? mobileNumberChanged,
     TResult Function(_BankAccountNumberChanged value)? bankAccountNumberChanged,
-    TResult Function(_AddCustomerPressed value)? addCustomerPressed,
+    TResult Function(_EditCustomerPressed value)? editCustomerPressed,
     required TResult orElse(),
   }) {
-    if (addCustomerPressed != null) {
-      return addCustomerPressed(this);
+    if (editCustomerPressed != null) {
+      return editCustomerPressed(this);
     }
     return orElse();
   }
 }
 
-abstract class _AddCustomerPressed implements AddCustomerBlocEvent {
-  const factory _AddCustomerPressed() = _$_AddCustomerPressed;
+abstract class _EditCustomerPressed implements EditCustomerBlocEvent {
+  const factory _EditCustomerPressed() = _$_EditCustomerPressed;
 }
 
 /// @nodoc
-class _$AddCustomerBlocStateTearOff {
-  const _$AddCustomerBlocStateTearOff();
+class _$EditCustomerBlocStateTearOff {
+  const _$EditCustomerBlocStateTearOff();
 
-  _AddCustomerBlocState call(
+  _EditCustomerBlocState call(
       {required String firstName,
       required String lastName,
       required DateTime dateOfBirth,
@@ -1310,9 +1309,9 @@ class _$AddCustomerBlocStateTearOff {
       required BankAccountNumber bankAccountNumber,
       required Option<Either<CustomerFailure, Customer>>
           customerfailureOrSuccessOption,
-      required bool isAdding,
+      required bool isLoading,
       required bool showError}) {
-    return _AddCustomerBlocState(
+    return _EditCustomerBlocState(
       firstName: firstName,
       lastName: lastName,
       dateOfBirth: dateOfBirth,
@@ -1320,24 +1319,24 @@ class _$AddCustomerBlocStateTearOff {
       mobileNumber: mobileNumber,
       bankAccountNumber: bankAccountNumber,
       customerfailureOrSuccessOption: customerfailureOrSuccessOption,
-      isAdding: isAdding,
+      isLoading: isLoading,
       showError: showError,
     );
   }
 }
 
 /// @nodoc
-const $AddCustomerBlocState = _$AddCustomerBlocStateTearOff();
+const $EditCustomerBlocState = _$EditCustomerBlocStateTearOff();
 
 /// @nodoc
-mixin _$AddCustomerBlocState {
+mixin _$EditCustomerBlocState {
   /// This hold [firstName] value that user Enter.
   String get firstName => throw _privateConstructorUsedError;
 
   /// This hold [lastName] value that user Enter.
   String get lastName => throw _privateConstructorUsedError;
 
-  /// This hold [bateOfBirth] value that user Enter.
+  /// This hold [bateOfBirthChange] value that user Enter.
   DateTime get dateOfBirth => throw _privateConstructorUsedError;
 
   /// This hold [emailAddress] value that user Enter.
@@ -1358,21 +1357,21 @@ mixin _$AddCustomerBlocState {
       get customerfailureOrSuccessOption => throw _privateConstructorUsedError;
 
   /// This is a boolean type to tell us when we have transaction with `Data Sourses`.
-  bool get isAdding => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
 
   /// This is for when we have some error.
   bool get showError => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $AddCustomerBlocStateCopyWith<AddCustomerBlocState> get copyWith =>
+  $EditCustomerBlocStateCopyWith<EditCustomerBlocState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AddCustomerBlocStateCopyWith<$Res> {
-  factory $AddCustomerBlocStateCopyWith(AddCustomerBlocState value,
-          $Res Function(AddCustomerBlocState) then) =
-      _$AddCustomerBlocStateCopyWithImpl<$Res>;
+abstract class $EditCustomerBlocStateCopyWith<$Res> {
+  factory $EditCustomerBlocStateCopyWith(EditCustomerBlocState value,
+          $Res Function(EditCustomerBlocState) then) =
+      _$EditCustomerBlocStateCopyWithImpl<$Res>;
   $Res call(
       {String firstName,
       String lastName,
@@ -1381,18 +1380,18 @@ abstract class $AddCustomerBlocStateCopyWith<$Res> {
       MobileNumber mobileNumber,
       BankAccountNumber bankAccountNumber,
       Option<Either<CustomerFailure, Customer>> customerfailureOrSuccessOption,
-      bool isAdding,
+      bool isLoading,
       bool showError});
 }
 
 /// @nodoc
-class _$AddCustomerBlocStateCopyWithImpl<$Res>
-    implements $AddCustomerBlocStateCopyWith<$Res> {
-  _$AddCustomerBlocStateCopyWithImpl(this._value, this._then);
+class _$EditCustomerBlocStateCopyWithImpl<$Res>
+    implements $EditCustomerBlocStateCopyWith<$Res> {
+  _$EditCustomerBlocStateCopyWithImpl(this._value, this._then);
 
-  final AddCustomerBlocState _value;
+  final EditCustomerBlocState _value;
   // ignore: unused_field
-  final $Res Function(AddCustomerBlocState) _then;
+  final $Res Function(EditCustomerBlocState) _then;
 
   @override
   $Res call({
@@ -1403,7 +1402,7 @@ class _$AddCustomerBlocStateCopyWithImpl<$Res>
     Object? mobileNumber = freezed,
     Object? bankAccountNumber = freezed,
     Object? customerfailureOrSuccessOption = freezed,
-    Object? isAdding = freezed,
+    Object? isLoading = freezed,
     Object? showError = freezed,
   }) {
     return _then(_value.copyWith(
@@ -1435,9 +1434,9 @@ class _$AddCustomerBlocStateCopyWithImpl<$Res>
           ? _value.customerfailureOrSuccessOption
           : customerfailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<CustomerFailure, Customer>>,
-      isAdding: isAdding == freezed
-          ? _value.isAdding
-          : isAdding // ignore: cast_nullable_to_non_nullable
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
       showError: showError == freezed
           ? _value.showError
@@ -1448,11 +1447,11 @@ class _$AddCustomerBlocStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$AddCustomerBlocStateCopyWith<$Res>
-    implements $AddCustomerBlocStateCopyWith<$Res> {
-  factory _$AddCustomerBlocStateCopyWith(_AddCustomerBlocState value,
-          $Res Function(_AddCustomerBlocState) then) =
-      __$AddCustomerBlocStateCopyWithImpl<$Res>;
+abstract class _$EditCustomerBlocStateCopyWith<$Res>
+    implements $EditCustomerBlocStateCopyWith<$Res> {
+  factory _$EditCustomerBlocStateCopyWith(_EditCustomerBlocState value,
+          $Res Function(_EditCustomerBlocState) then) =
+      __$EditCustomerBlocStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {String firstName,
@@ -1462,20 +1461,20 @@ abstract class _$AddCustomerBlocStateCopyWith<$Res>
       MobileNumber mobileNumber,
       BankAccountNumber bankAccountNumber,
       Option<Either<CustomerFailure, Customer>> customerfailureOrSuccessOption,
-      bool isAdding,
+      bool isLoading,
       bool showError});
 }
 
 /// @nodoc
-class __$AddCustomerBlocStateCopyWithImpl<$Res>
-    extends _$AddCustomerBlocStateCopyWithImpl<$Res>
-    implements _$AddCustomerBlocStateCopyWith<$Res> {
-  __$AddCustomerBlocStateCopyWithImpl(
-      _AddCustomerBlocState _value, $Res Function(_AddCustomerBlocState) _then)
-      : super(_value, (v) => _then(v as _AddCustomerBlocState));
+class __$EditCustomerBlocStateCopyWithImpl<$Res>
+    extends _$EditCustomerBlocStateCopyWithImpl<$Res>
+    implements _$EditCustomerBlocStateCopyWith<$Res> {
+  __$EditCustomerBlocStateCopyWithImpl(_EditCustomerBlocState _value,
+      $Res Function(_EditCustomerBlocState) _then)
+      : super(_value, (v) => _then(v as _EditCustomerBlocState));
 
   @override
-  _AddCustomerBlocState get _value => super._value as _AddCustomerBlocState;
+  _EditCustomerBlocState get _value => super._value as _EditCustomerBlocState;
 
   @override
   $Res call({
@@ -1486,10 +1485,10 @@ class __$AddCustomerBlocStateCopyWithImpl<$Res>
     Object? mobileNumber = freezed,
     Object? bankAccountNumber = freezed,
     Object? customerfailureOrSuccessOption = freezed,
-    Object? isAdding = freezed,
+    Object? isLoading = freezed,
     Object? showError = freezed,
   }) {
-    return _then(_AddCustomerBlocState(
+    return _then(_EditCustomerBlocState(
       firstName: firstName == freezed
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
@@ -1518,9 +1517,9 @@ class __$AddCustomerBlocStateCopyWithImpl<$Res>
           ? _value.customerfailureOrSuccessOption
           : customerfailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<CustomerFailure, Customer>>,
-      isAdding: isAdding == freezed
-          ? _value.isAdding
-          : isAdding // ignore: cast_nullable_to_non_nullable
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
       showError: showError == freezed
           ? _value.showError
@@ -1532,8 +1531,8 @@ class __$AddCustomerBlocStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AddCustomerBlocState implements _AddCustomerBlocState {
-  const _$_AddCustomerBlocState(
+class _$_EditCustomerBlocState implements _EditCustomerBlocState {
+  const _$_EditCustomerBlocState(
       {required this.firstName,
       required this.lastName,
       required this.dateOfBirth,
@@ -1541,7 +1540,7 @@ class _$_AddCustomerBlocState implements _AddCustomerBlocState {
       required this.mobileNumber,
       required this.bankAccountNumber,
       required this.customerfailureOrSuccessOption,
-      required this.isAdding,
+      required this.isLoading,
       required this.showError});
 
   @override
@@ -1554,7 +1553,7 @@ class _$_AddCustomerBlocState implements _AddCustomerBlocState {
   final String lastName;
   @override
 
-  /// This hold [bateOfBirth] value that user Enter.
+  /// This hold [bateOfBirthChange] value that user Enter.
   final DateTime dateOfBirth;
   @override
 
@@ -1580,7 +1579,7 @@ class _$_AddCustomerBlocState implements _AddCustomerBlocState {
   @override
 
   /// This is a boolean type to tell us when we have transaction with `Data Sourses`.
-  final bool isAdding;
+  final bool isLoading;
   @override
 
   /// This is for when we have some error.
@@ -1588,14 +1587,14 @@ class _$_AddCustomerBlocState implements _AddCustomerBlocState {
 
   @override
   String toString() {
-    return 'AddCustomerBlocState(firstName: $firstName, lastName: $lastName, dateOfBirth: $dateOfBirth, emailAddress: $emailAddress, mobileNumber: $mobileNumber, bankAccountNumber: $bankAccountNumber, customerfailureOrSuccessOption: $customerfailureOrSuccessOption, isAdding: $isAdding, showError: $showError)';
+    return 'EditCustomerBlocState(firstName: $firstName, lastName: $lastName, dateOfBirth: $dateOfBirth, emailAddress: $emailAddress, mobileNumber: $mobileNumber, bankAccountNumber: $bankAccountNumber, customerfailureOrSuccessOption: $customerfailureOrSuccessOption, isLoading: $isLoading, showError: $showError)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AddCustomerBlocState &&
+            other is _EditCustomerBlocState &&
             const DeepCollectionEquality().equals(other.firstName, firstName) &&
             const DeepCollectionEquality().equals(other.lastName, lastName) &&
             const DeepCollectionEquality()
@@ -1609,7 +1608,7 @@ class _$_AddCustomerBlocState implements _AddCustomerBlocState {
             const DeepCollectionEquality().equals(
                 other.customerfailureOrSuccessOption,
                 customerfailureOrSuccessOption) &&
-            const DeepCollectionEquality().equals(other.isAdding, isAdding) &&
+            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality().equals(other.showError, showError));
   }
 
@@ -1623,18 +1622,18 @@ class _$_AddCustomerBlocState implements _AddCustomerBlocState {
       const DeepCollectionEquality().hash(mobileNumber),
       const DeepCollectionEquality().hash(bankAccountNumber),
       const DeepCollectionEquality().hash(customerfailureOrSuccessOption),
-      const DeepCollectionEquality().hash(isAdding),
+      const DeepCollectionEquality().hash(isLoading),
       const DeepCollectionEquality().hash(showError));
 
   @JsonKey(ignore: true)
   @override
-  _$AddCustomerBlocStateCopyWith<_AddCustomerBlocState> get copyWith =>
-      __$AddCustomerBlocStateCopyWithImpl<_AddCustomerBlocState>(
+  _$EditCustomerBlocStateCopyWith<_EditCustomerBlocState> get copyWith =>
+      __$EditCustomerBlocStateCopyWithImpl<_EditCustomerBlocState>(
           this, _$identity);
 }
 
-abstract class _AddCustomerBlocState implements AddCustomerBlocState {
-  const factory _AddCustomerBlocState(
+abstract class _EditCustomerBlocState implements EditCustomerBlocState {
+  const factory _EditCustomerBlocState(
       {required String firstName,
       required String lastName,
       required DateTime dateOfBirth,
@@ -1643,8 +1642,8 @@ abstract class _AddCustomerBlocState implements AddCustomerBlocState {
       required BankAccountNumber bankAccountNumber,
       required Option<Either<CustomerFailure, Customer>>
           customerfailureOrSuccessOption,
-      required bool isAdding,
-      required bool showError}) = _$_AddCustomerBlocState;
+      required bool isLoading,
+      required bool showError}) = _$_EditCustomerBlocState;
 
   @override
 
@@ -1656,7 +1655,7 @@ abstract class _AddCustomerBlocState implements AddCustomerBlocState {
   String get lastName;
   @override
 
-  /// This hold [bateOfBirth] value that user Enter.
+  /// This hold [bateOfBirthChange] value that user Enter.
   DateTime get dateOfBirth;
   @override
 
@@ -1681,13 +1680,13 @@ abstract class _AddCustomerBlocState implements AddCustomerBlocState {
   @override
 
   /// This is a boolean type to tell us when we have transaction with `Data Sourses`.
-  bool get isAdding;
+  bool get isLoading;
   @override
 
   /// This is for when we have some error.
   bool get showError;
   @override
   @JsonKey(ignore: true)
-  _$AddCustomerBlocStateCopyWith<_AddCustomerBlocState> get copyWith =>
+  _$EditCustomerBlocStateCopyWith<_EditCustomerBlocState> get copyWith =>
       throw _privateConstructorUsedError;
 }

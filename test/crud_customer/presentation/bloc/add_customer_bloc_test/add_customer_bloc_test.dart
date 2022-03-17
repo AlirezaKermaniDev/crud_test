@@ -66,7 +66,7 @@ void main() {
       await Future.delayed(const Duration(milliseconds: 200));
 
       /// Assert
-      expect(bloc.state.dateOfBirthChange, testCustomer.dateOfBirth);
+      expect(bloc.state.dateOfBirth, testCustomer.dateOfBirth);
     });
     test(
         'When emailAddressChanged Event raised emailAddress value in state should change',
