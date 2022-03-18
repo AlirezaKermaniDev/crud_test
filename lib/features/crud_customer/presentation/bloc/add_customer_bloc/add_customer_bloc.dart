@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:mc_crud_test/core/failure/customer_failure/customer_failure.dart';
 import 'package:mc_crud_test/features/crud_customer/domain/entities/bank_account_number.dart';
 import 'package:mc_crud_test/features/crud_customer/domain/entities/customer_entity/customer.dart';
@@ -15,6 +16,7 @@ part 'add_customer_bloc_bloc.freezed.dart';
 /// [AddCustomerBloc] hold our BloC logics for adding a customer.
 ///
 /// For adding customer we must pass [AddCustomer] use case to this bloc.
+@injectable
 class AddCustomerBloc extends Bloc<AddCustomerBlocEvent, AddCustomerBlocState> {
   AddCustomer addCustomer;
   AddCustomerBloc({required this.addCustomer})

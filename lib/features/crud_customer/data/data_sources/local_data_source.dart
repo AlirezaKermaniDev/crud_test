@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:injectable/injectable.dart';
 import 'package:mc_crud_test/core/failure/customer_failure/customer_failure.dart';
 import 'package:dartz/dartz.dart';
 
@@ -7,6 +8,7 @@ import 'package:mc_crud_test/features/crud_customer/data/data_sources/data_sourc
 import 'package:mc_crud_test/features/crud_customer/domain/entities/customer_entity/customer.dart';
 import 'package:hive/hive.dart';
 
+@LazySingleton(as: DataSource)
 class LocalDataSource implements DataSource {
   final Box<String> database;
 
@@ -15,7 +17,6 @@ class LocalDataSource implements DataSource {
   @override
   Future<Either<CustomerFailure, Customer>> createCustomer(
       {required Customer customer}) async {
-
     /// Checking the added [Customer] is `Unique`.
     bool isCustomerUnique = _checkCustomerIsUnique(customer);
 
@@ -34,7 +35,6 @@ class LocalDataSource implements DataSource {
 
     /// If we have Unique [Customer] then added to the DB and returned.
     await database.add(json.encode(customer.toJson()));
-
 
     return Right(customer);
   }

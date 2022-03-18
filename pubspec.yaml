@@ -29,12 +29,12 @@ dependencies:
   # Functional programming things like `Either` and ...
   dartz: ^0.10.1
 
-  # Get it for service locator
+  # Service locators
   get_it: ^7.2.0
+  injectable: ^1.5.3
 
   # Validators
   email_validator: ^2.0.1
-
 
   # This one created buy flutter :)
   cupertino_icons: ^1.0.2
@@ -55,8 +55,11 @@ dev_dependencies:
 
   # Json serializable for combine json methods to our models
   json_serializable: ^6.1.5
+  
+  # Injectable generator for generate our Service locators codes
+  injectable_generator: ^1.5.3
 
-  # Build runner to let other packages like `Hive` or `Freezed` generate theire data
+  # Build runner to let other packages like `Hive` or `Freezed` or `injectable_generator` generate theire data
   build_runner: ^2.1.7
 
 flutter:
