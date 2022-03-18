@@ -49,10 +49,10 @@ class EditCustomerFormWidget extends StatelessWidget {
 
   /// BLoC Builder
   Widget _editCustomerBlocBuilder(context, EditCustomerBlocState state) {
-    if (state.isLoading) {
+    if (state.isLoading || !state.emailAddress.isValid()) {
       return _loadingWidget();
     }
-    return _addCustomerFormWidget(context, state);
+    return _editCustomerFormWidget(context, state);
   }
 
   Center _loadingWidget() {
@@ -61,8 +61,8 @@ class EditCustomerFormWidget extends StatelessWidget {
     );
   }
 
-  /// Add Customer text fields Form
-  Form _addCustomerFormWidget(context, state) {
+  /// Edit Customer text fields Form
+  Form _editCustomerFormWidget(context, state) {
     return Form(
         autovalidateMode: AutovalidateMode.always,
         child: ListView(
@@ -74,13 +74,13 @@ class EditCustomerFormWidget extends StatelessWidget {
             _emailAddressTextFieldWidget(context, state),
             _mobileNumberTextFieldWidget(context, state),
             _bankAccountTextFieldwidget(context, state),
-            _addCustomerButtonWidget(context),
+            _editCustomerButtonWidget(context),
           ],
         ));
   }
 
   /// Add customer buttom Widget
-  Padding _addCustomerButtonWidget(BuildContext context) {
+  Padding _editCustomerButtonWidget(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: SizedBox(

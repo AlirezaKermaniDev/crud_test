@@ -13,6 +13,7 @@ class EditCustomerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(ModalRoute.of(context)!.settings.arguments);
     return Scaffold(
       appBar: appBarWidget(buildContext: context, title: "Edit customer"),
       body: BlocProvider.value(

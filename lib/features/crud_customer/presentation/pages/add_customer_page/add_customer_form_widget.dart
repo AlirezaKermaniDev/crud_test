@@ -64,50 +64,32 @@ class AddCustomerFormWidget extends StatelessWidget {
           padding: const EdgeInsets.only(top: 16.0, right: 8.0, left: 8.0),
           children: [
             _firstNameTextFieldWidget(context),
-            const SizedBox(
-              height: 16.0,
-            ),
             _lastNameTextFieldWidget(context),
-            const SizedBox(
-              height: 16.0,
-            ),
             _dateOfBirthFieldWidget(context, state),
-            const SizedBox(
-              height: 16.0,
-            ),
             _emailAddressTextFieldWidget(context, state),
-            const SizedBox(
-              height: 16.0,
-            ),
             _mobileNumberTextFieldWidget(context, state),
-            const SizedBox(
-              height: 16.0,
-            ),
             _bankAccountTextFieldwidget(context, state),
-            const SizedBox(
-              height: 16.0,
-            ),
             _addCustomerButtonWidget(context),
-            const SizedBox(
-              height: 16.0,
-            ),
           ],
         ));
   }
 
   /// Add customer buttom Widget
-  SizedBox _addCustomerButtonWidget(BuildContext context) {
-    return SizedBox(
-      height: 45.0,
-      child: ElevatedButton(
-          onPressed: () {
-            BlocProvider.of<AddCustomerBloc>(context)
-                .add(const AddCustomerBlocEvent.addCustomerPressed());
-          },
-          child: Text(
-            "Add",
-            style: Theme.of(context).textTheme.button,
-          )),
+  Padding _addCustomerButtonWidget(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: SizedBox(
+        height: 45.0,
+        child: ElevatedButton(
+            onPressed: () {
+              BlocProvider.of<AddCustomerBloc>(context)
+                  .add(const AddCustomerBlocEvent.addCustomerPressed());
+            },
+            child: Text(
+              "Add",
+              style: Theme.of(context).textTheme.button,
+            )),
+      ),
     );
   }
 
@@ -141,140 +123,159 @@ class AddCustomerFormWidget extends StatelessWidget {
   }
 
   /// BankAccount text field Widget builder
-  TextFormField _bankAccountTextFieldwidget(
+  Padding _bankAccountTextFieldwidget(
       BuildContext context, AddCustomerBlocState state) {
-    return TextFormField(
-      inputFormatters: [bankAccountNumberTextFormatter],
-      style: Theme.of(context).textTheme.subtitle2,
-      onChanged: (value) => _textFieldsOnChange(
-        context,
-        AddCustomerBlocEvent.bankAccountNumberChanged(
-            value.replaceAll("-", "").replaceAll(" ", "")),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        inputFormatters: [bankAccountNumberTextFormatter],
+        style: Theme.of(context).textTheme.subtitle2,
+        onChanged: (value) => _textFieldsOnChange(
+          context,
+          AddCustomerBlocEvent.bankAccountNumberChanged(
+              value.replaceAll("-", "").replaceAll(" ", "")),
+        ),
+        keyboardType: TextInputType.number,
+        validator: (_) {
+          return BlocProvider.of<AddCustomerBloc>(context)
+              .state
+              .bankAccountNumber
+              .value
+              .fold(
+                  (failure) => failure.maybeMap(
+                      invalidBankAccountNumber: (value) =>
+                          "Invalid Bank account number",
+                      orElse: () => null),
+                  (email) => null);
+        },
+        decoration: const InputDecoration(
+            prefixIcon: Icon(Icons.account_balance_rounded),
+            labelText: "Bank account number"),
       ),
-      keyboardType: TextInputType.number,
-      validator: (_) {
-        return BlocProvider.of<AddCustomerBloc>(context)
-            .state
-            .bankAccountNumber
-            .value
-            .fold(
-                (failure) => failure.maybeMap(
-                    invalidBankAccountNumber: (value) =>
-                        "Invalid Bank account number",
-                    orElse: () => null),
-                (email) => null);
-      },
-      decoration: const InputDecoration(
-          prefixIcon: Icon(Icons.account_balance_rounded),
-          labelText: "Bank account number"),
     );
   }
 
   /// MobileNumber text field Widget builder
-  TextFormField _mobileNumberTextFieldWidget(
+  Padding _mobileNumberTextFieldWidget(
       BuildContext context, AddCustomerBlocState state) {
-    return TextFormField(
-      inputFormatters: [mobileNumberTextFormatter],
-      style: Theme.of(context).textTheme.subtitle2,
-      onChanged: (value) => _textFieldsOnChange(
-        context,
-        AddCustomerBlocEvent.mobileNumberChanged(value),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        inputFormatters: [mobileNumberTextFormatter],
+        style: Theme.of(context).textTheme.subtitle2,
+        onChanged: (value) => _textFieldsOnChange(
+          context,
+          AddCustomerBlocEvent.mobileNumberChanged(value),
+        ),
+        keyboardType: TextInputType.phone,
+        validator: (_) => BlocProvider.of<AddCustomerBloc>(context)
+            .state
+            .mobileNumber
+            .value
+            .fold(
+                (failure) => failure.maybeMap(
+                    invalidPhoneNumber: (value) => "Invalid Mobile number",
+                    orElse: () => null),
+                (email) => null),
+        decoration: const InputDecoration(
+            prefixIcon: Icon(Icons.phone_android_rounded),
+            labelText: "Mobile number"),
       ),
-      keyboardType: TextInputType.phone,
-      validator: (_) => BlocProvider.of<AddCustomerBloc>(context)
-          .state
-          .mobileNumber
-          .value
-          .fold(
-              (failure) => failure.maybeMap(
-                  invalidPhoneNumber: (value) => "Invalid Mobile number",
-                  orElse: () => null),
-              (email) => null),
-      decoration: const InputDecoration(
-          prefixIcon: Icon(Icons.phone_android_rounded),
-          labelText: "Mobile number"),
     );
   }
 
   /// EmailAddress text field Widget builder
-  TextFormField _emailAddressTextFieldWidget(
+  Padding _emailAddressTextFieldWidget(
       BuildContext context, AddCustomerBlocState state) {
-    return TextFormField(
-      style: Theme.of(context).textTheme.subtitle2,
-      onChanged: (value) => _textFieldsOnChange(
-        context,
-        AddCustomerBlocEvent.emailAddressChanged(value),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        style: Theme.of(context).textTheme.subtitle2,
+        onChanged: (value) => _textFieldsOnChange(
+          context,
+          AddCustomerBlocEvent.emailAddressChanged(value),
+        ),
+        keyboardType: TextInputType.emailAddress,
+        validator: (_) => BlocProvider.of<AddCustomerBloc>(context)
+            .state
+            .emailAddress
+            .value
+            .fold(
+                (failure) => failure.maybeMap(
+                    invalidEmail: (value) => "Invalid Email",
+                    orElse: () => null),
+                (email) => null),
+        decoration: const InputDecoration(
+            prefixIcon: Icon(Icons.email_rounded), labelText: "Email address"),
       ),
-      keyboardType: TextInputType.emailAddress,
-      validator: (_) => BlocProvider.of<AddCustomerBloc>(context)
-          .state
-          .emailAddress
-          .value
-          .fold(
-              (failure) => failure.maybeMap(
-                  invalidEmail: (value) => "Invalid Email", orElse: () => null),
-              (email) => null),
-      decoration: const InputDecoration(
-          prefixIcon: Icon(Icons.email_rounded), labelText: "Email address"),
     );
   }
 
   /// DateOfBirth text field Widget
-  TextFormField _dateOfBirthFieldWidget(
+  Padding _dateOfBirthFieldWidget(
       BuildContext context, AddCustomerBlocState state) {
-    return TextFormField(
-      onTap: () async {
-        FocusScope.of(context).requestFocus(FocusNode());
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        onTap: () async {
+          FocusScope.of(context).requestFocus(FocusNode());
 
-        final DateTime? picked = await showDatePicker(
-            context: context,
-            initialDate: state.dateOfBirth,
-            firstDate: DateTime(2015, 8),
-            lastDate: DateTime(2101));
-        if (picked != null && picked != state.dateOfBirth) {
-          BlocProvider.of<AddCustomerBloc>(context)
-              .add(AddCustomerBlocEvent.dateOfBirthChange(picked));
-        }
-      },
-      controller: dateOfBirthFieldController,
-      style: Theme.of(context).textTheme.subtitle2,
-      decoration: const InputDecoration(
-          prefixIcon: Icon(Icons.date_range_rounded),
-          labelText: "Date of birth"),
+          final DateTime? picked = await showDatePicker(
+              context: context,
+              initialDate: state.dateOfBirth,
+              firstDate: DateTime(2015, 8),
+              lastDate: DateTime(2101));
+          if (picked != null && picked != state.dateOfBirth) {
+            BlocProvider.of<AddCustomerBloc>(context)
+                .add(AddCustomerBlocEvent.dateOfBirthChange(picked));
+          }
+        },
+        controller: dateOfBirthFieldController,
+        style: Theme.of(context).textTheme.subtitle2,
+        decoration: const InputDecoration(
+            prefixIcon: Icon(Icons.date_range_rounded),
+            labelText: "Date of birth"),
+      ),
     );
   }
 
   /// LastName text field Widget
-  TextFormField _lastNameTextFieldWidget(BuildContext context) {
-    return TextFormField(
-      style: Theme.of(context).textTheme.subtitle2,
-      onChanged: (value) => _textFieldsOnChange(
-        context,
-        AddCustomerBlocEvent.lastNameChanged(value),
+  Padding _lastNameTextFieldWidget(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        style: Theme.of(context).textTheme.subtitle2,
+        onChanged: (value) => _textFieldsOnChange(
+          context,
+          AddCustomerBlocEvent.lastNameChanged(value),
+        ),
+        validator: (_) =>
+            BlocProvider.of<AddCustomerBloc>(context).state.lastName.isEmpty
+                ? "This field should not be empty"
+                : null,
+        decoration: const InputDecoration(
+            prefixIcon: Icon(Icons.person_rounded), labelText: "Last name"),
       ),
-      validator: (_) =>
-          BlocProvider.of<AddCustomerBloc>(context).state.lastName.isEmpty
-              ? "This field should not be empty"
-              : null,
-      decoration: const InputDecoration(
-          prefixIcon: Icon(Icons.person_rounded), labelText: "Last name"),
     );
   }
 
   /// FirstName text field Widget
-  TextFormField _firstNameTextFieldWidget(BuildContext context) {
-    return TextFormField(
-      style: Theme.of(context).textTheme.subtitle2,
-      onChanged: (value) => _textFieldsOnChange(
-        context,
-        AddCustomerBlocEvent.firstNameChanged(value),
+  Padding _firstNameTextFieldWidget(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        style: Theme.of(context).textTheme.subtitle2,
+        onChanged: (value) => _textFieldsOnChange(
+          context,
+          AddCustomerBlocEvent.firstNameChanged(value),
+        ),
+        validator: (_) =>
+            BlocProvider.of<AddCustomerBloc>(context).state.firstName.isEmpty
+                ? "This field should not be empty"
+                : null,
+        decoration: const InputDecoration(
+            prefixIcon: Icon(Icons.person_rounded), labelText: "First name"),
       ),
-      validator: (_) =>
-          BlocProvider.of<AddCustomerBloc>(context).state.firstName.isEmpty
-              ? "This field should not be empty"
-              : null,
-      decoration: const InputDecoration(
-          prefixIcon: Icon(Icons.person_rounded), labelText: "First name"),
     );
   }
 
