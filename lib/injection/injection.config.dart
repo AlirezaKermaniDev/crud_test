@@ -37,31 +37,30 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
     {String? environment, _i2.EnvironmentFilter? environmentFilter}) {
   final gh = _i2.GetItHelper(get, environment, environmentFilter);
   final injectableModules = _$InjectableModules();
-  gh.lazySingletonAsync<_i3.Box<String>>(() => injectableModules.database);
-  gh.lazySingletonAsync<_i4.DataSource>(
-      () async => _i5.LocalDataSource(await get.getAsync<_i3.Box<String>>()));
-  gh.lazySingletonAsync<_i6.CustomerRepository>(() async =>
-      _i7.CustomerRepositoryImpl(await get.getAsync<_i4.DataSource>()));
-  gh.lazySingletonAsync<_i8.DeleteCustomer>(() async =>
-      _i8.DeleteCustomer(await get.getAsync<_i6.CustomerRepository>()));
-  gh.lazySingletonAsync<_i9.EditCustomer>(() async =>
-      _i9.EditCustomer(await get.getAsync<_i6.CustomerRepository>()));
-  gh.lazySingletonAsync<_i10.GetCustomerByEmail>(() async =>
-      _i10.GetCustomerByEmail(await get.getAsync<_i6.CustomerRepository>()));
-  gh.lazySingletonAsync<_i11.GetCustomersList>(() async =>
-      _i11.GetCustomersList(await get.getAsync<_i6.CustomerRepository>()));
-  gh.factoryAsync<_i12.ManageCustomersBloc>(() async =>
-      _i12.ManageCustomersBloc(
-          getCustomerByEmail: await get.getAsync<_i10.GetCustomerByEmail>(),
-          getCustomersList: await get.getAsync<_i11.GetCustomersList>(),
-          deleteCustomer: await get.getAsync<_i8.DeleteCustomer>()));
-  gh.lazySingletonAsync<_i13.AddCustomer>(() async =>
-      _i13.AddCustomer(await get.getAsync<_i6.CustomerRepository>()));
-  gh.factoryAsync<_i14.AddCustomerBloc>(() async => _i14.AddCustomerBloc(
-      addCustomer: await get.getAsync<_i13.AddCustomer>()));
-  gh.factoryAsync<_i15.EditCustomerBloc>(() async => _i15.EditCustomerBloc(
-      editCustomer: await get.getAsync<_i9.EditCustomer>(),
-      getCustomerByEmail: await get.getAsync<_i10.GetCustomerByEmail>()));
+  gh.lazySingleton<_i3.Box<String>>(() => injectableModules.database);
+  gh.lazySingleton<_i4.DataSource>(
+      () => _i5.LocalDataSource(get<_i3.Box<String>>()));
+  gh.lazySingleton<_i6.CustomerRepository>(
+      () => _i7.CustomerRepositoryImpl(get<_i4.DataSource>()));
+  gh.lazySingleton<_i8.DeleteCustomer>(
+      () => _i8.DeleteCustomer(get<_i6.CustomerRepository>()));
+  gh.lazySingleton<_i9.EditCustomer>(
+      () => _i9.EditCustomer(get<_i6.CustomerRepository>()));
+  gh.lazySingleton<_i10.GetCustomerByEmail>(
+      () => _i10.GetCustomerByEmail(get<_i6.CustomerRepository>()));
+  gh.lazySingleton<_i11.GetCustomersList>(
+      () => _i11.GetCustomersList(get<_i6.CustomerRepository>()));
+  gh.lazySingleton<_i12.ManageCustomersBloc>(() => _i12.ManageCustomersBloc(
+      getCustomerByEmail: get<_i10.GetCustomerByEmail>(),
+      getCustomersList: get<_i11.GetCustomersList>(),
+      deleteCustomer: get<_i8.DeleteCustomer>()));
+  gh.lazySingleton<_i13.AddCustomer>(
+      () => _i13.AddCustomer(get<_i6.CustomerRepository>()));
+  gh.lazySingleton<_i14.AddCustomerBloc>(
+      () => _i14.AddCustomerBloc(addCustomer: get<_i13.AddCustomer>()));
+  gh.lazySingleton<_i15.EditCustomerBloc>(() => _i15.EditCustomerBloc(
+      editCustomer: get<_i9.EditCustomer>(),
+      getCustomerByEmail: get<_i10.GetCustomerByEmail>()));
   return get;
 }
 

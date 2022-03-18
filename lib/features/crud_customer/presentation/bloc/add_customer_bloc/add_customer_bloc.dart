@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -16,7 +17,7 @@ part 'add_customer_bloc_bloc.freezed.dart';
 /// [AddCustomerBloc] hold our BloC logics for adding a customer.
 ///
 /// For adding customer we must pass [AddCustomer] use case to this bloc.
-@injectable
+@lazySingleton
 class AddCustomerBloc extends Bloc<AddCustomerBlocEvent, AddCustomerBlocState> {
   AddCustomer addCustomer;
   AddCustomerBloc({required this.addCustomer})
@@ -24,76 +25,77 @@ class AddCustomerBloc extends Bloc<AddCustomerBlocEvent, AddCustomerBlocState> {
       /// Pass our initial State to `super` funtion to telling the bloc which state is our initial state.
       : super(AddCustomerBlocState.initial()) {
     /// Here we Map our `Events` to `States`
-    on<AddCustomerBlocEvent>((event, emit) {
-      /// Map of all Events.
-      event.map(
+    on<AddCustomerBlocEvent>(mapEventsToState);
+  }
 
-          /// when [firstNameChanged] `Event` called this block of code will run.
-          firstNameChanged: (e) {
+  FutureOr<void> mapEventsToState(
+      AddCustomerBlocEvent event, Emitter<AddCustomerBlocState> emit) async {
+    /// Map of all Events.
+    await event.map(
+
+        /// when [firstNameChanged] `Event` called this block of code will run.
+        firstNameChanged: (e) async {
+      emit(state.copyWith(
+          firstName: e.firstName, customerfailureOrSuccessOption: none()));
+    },
+
+        /// when [lastNameChanged] `Event` called this block of code will run.
+        lastNameChanged: (e) async {
+      emit(state.copyWith(
+          lastName: e.lastName, customerfailureOrSuccessOption: none()));
+    },
+
+        /// when [dateOfBirthChange] `Event` called this block of code will run.
+        dateOfBirthChange: (e) async {
+      emit(state.copyWith(
+          dateOfBirth: e.dateOfBirth, customerfailureOrSuccessOption: none()));
+    },
+
+        /// when [emailAddressChanged] `Event` called this block of code will run.
+        emailAddressChanged: (e) async {
+      emit(state.copyWith(
+          emailAddress: EmailAddress(e.emailAddress),
+          customerfailureOrSuccessOption: none()));
+    },
+
+        /// when [mobileNumberChanged] `Event` called this block of code will run.
+        mobileNumberChanged: (e) async {
+      emit(state.copyWith(
+          mobileNumber: MobileNumber(e.mobileNumber),
+          customerfailureOrSuccessOption: none()));
+    },
+
+        /// when [bankAccountNumberChanged] `Event` called this block of code will run.
+        bankAccountNumberChanged: (e) async {
+      emit(state.copyWith(
+          bankAccountNumber: BankAccountNumber(e.bankAccountNumber),
+          customerfailureOrSuccessOption: none()));
+    },
+
+        /// when [addCustomerPressed] `Event` called this block of code will run.
+        addCustomerPressed: (e) async {
+      /// Check if all params valid.
+      emit(state.copyWith(
+          isAdding: true, customerfailureOrSuccessOption: none()));
+      if (isAllParamsValid()) {
+        /// Set [isAdding] to true for showing loading widgets.
+
+        /// Make a customer with our values.
+        Customer customer = customerMaker();
+
+        /// add customer with use case.
+
+        final resultOfAdding = await addCustomer(params: customer);
+
+        /// Set our result and setting [isAdding] to false
         emit(state.copyWith(
-            firstName: e.firstName, customerfailureOrSuccessOption: none()));
-      },
-
-          /// when [lastNameChanged] `Event` called this block of code will run.
-          lastNameChanged: (e) {
+            isAdding: false,
+            customerfailureOrSuccessOption: optionOf(resultOfAdding)));
+      } else {
+        /// If params are not valid then we set showError to true.
         emit(state.copyWith(
-            lastName: e.lastName, customerfailureOrSuccessOption: none()));
-      },
-
-          /// when [dateOfBirthChange] `Event` called this block of code will run.
-          dateOfBirthChange: (e) {
-        emit(state.copyWith(
-            dateOfBirth: e.dateOfBirth,
-            customerfailureOrSuccessOption: none()));
-      },
-
-          /// when [emailAddressChanged] `Event` called this block of code will run.
-          emailAddressChanged: (e) {
-        emit(state.copyWith(
-            emailAddress: EmailAddress(e.emailAddress),
-            customerfailureOrSuccessOption: none()));
-      },
-
-          /// when [mobileNumberChanged] `Event` called this block of code will run.
-          mobileNumberChanged: (e) {
-        emit(state.copyWith(
-            mobileNumber: MobileNumber(e.mobileNumber),
-            customerfailureOrSuccessOption: none()));
-      },
-
-          /// when [bankAccountNumberChanged] `Event` called this block of code will run.
-          bankAccountNumberChanged: (e) {
-        emit(state.copyWith(
-            bankAccountNumber: BankAccountNumber(e.bankAccountNumber),
-            customerfailureOrSuccessOption: none()));
-      },
-
-          /// when [addCustomerPressed] `Event` called this block of code will run.
-          addCustomerPressed: (e) async {
-        /// Check if all params valid.
-        if (isAllParamsValid()) {
-          /// Set [isAdding] to true for showing loading widgets.
-          emit(state.copyWith(
-              isAdding: true, customerfailureOrSuccessOption: none()));
-
-          /// Make a customer with our values.
-          Customer customer = customerMaker();
-
-          /// add customer with use case.
-          Either<CustomerFailure, Customer> resultOfAdding =
-              await addCustomer(params: customer);
-
-          /// Set our result and setting [isAdding] to false
-          emit(state.copyWith(
-              isAdding: false,
-              showError: resultOfAdding.isLeft(),
-              customerfailureOrSuccessOption: optionOf(resultOfAdding)));
-        } else {
-          /// If params are not valid then we set showError to true.
-          emit(state.copyWith(
-              showError: true, customerfailureOrSuccessOption: none()));
-        }
-      });
+            isAdding: false, customerfailureOrSuccessOption: none()));
+      }
     });
   }
 

@@ -36,8 +36,13 @@ dependencies:
   # Validators
   email_validator: ^2.0.1
 
+  # For format our values
+  mask_text_input_formatter: ^2.1.0
+  intl: ^0.17.0
+  
   # This one created buy flutter :)
   cupertino_icons: ^1.0.2
+
 
 dev_dependencies:
   flutter_test:
@@ -62,6 +67,8 @@ dev_dependencies:
   # Build runner to let other packages like `Hive` or `Freezed` or `injectable_generator` generate theire data
   build_runner: ^2.1.7
 
+  
+
 flutter:
   uses-material-design: true
 
@@ -74,7 +81,4 @@ flutter:
     - family: Fredoka
       fonts:
         - asset: assets/fonts/Fredoka-Light.ttf
-        - asset: assets/fonts/Fredoka-Regular.ttf
-          weight: 500
-        - asset: assets/fonts/Fredoka-SemiBold.ttf
-          weight: 700
+

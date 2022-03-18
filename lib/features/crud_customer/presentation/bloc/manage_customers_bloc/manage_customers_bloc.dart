@@ -16,7 +16,7 @@ part 'manage_customers_bloc_bloc.freezed.dart';
 /// [ManageCustomersBloc] hold our BloC logics for managing customers.
 ///
 /// For adding customer we must pass [GetCustomerByEmail] , [GetCustomersList] & [DeleteCustomer] use cases to this bloc.
-@injectable
+@lazySingleton
 class ManageCustomersBloc
     extends Bloc<ManageCustomersBlocEvent, ManageCustomersBlocState> {
   final GetCustomerByEmail getCustomerByEmail;
@@ -28,8 +28,8 @@ class ManageCustomersBloc
     required this.deleteCustomer,
   }) : super(ManageCustomersBlocState.initial()) {
     /// Maping `events` to `state`.
-    on<ManageCustomersBlocEvent>((event, emit) {
-      event.map(getCustomersList: (e) async {
+    on<ManageCustomersBlocEvent>((event, emit) async {
+      await event.map(getCustomersList: (e) async {
         /// Setting is Loading true for showing loading widgets
         emit(state.copyWith(
             isLoading: true, customerfailureOrSuccessOption: none()));
@@ -38,13 +38,12 @@ class ManageCustomersBloc
         final resultOfGetcustomersList = await getCustomersList(params: null);
 
         /// Fold the result to find out is `failrue` or `success`.
-        resultOfGetcustomersList.fold((failure) {
+        await resultOfGetcustomersList.fold((failure) async {
           /// If the result was failure then we show errors.
           emit(state.copyWith(
               isLoading: false,
-              showError: true,
               customerfailureOrSuccessOption: some(Left(failure))));
-        }, (customers) {
+        }, (customers) async {
           /// If the result was successful then we fill the [Customer]s list
           emit(state.copyWith(
               isLoading: false,
@@ -65,7 +64,6 @@ class ManageCustomersBloc
           /// If the result was failure then we show errors.
           emit(state.copyWith(
               isLoading: false,
-              showError: true,
               customerfailureOrSuccessOption: some(Left(failure))));
         }, (customer) {
           /// If the result was successful then we fill the [Customer] field
@@ -88,7 +86,6 @@ class ManageCustomersBloc
           /// If the result was failure then we show errors.
           emit(state.copyWith(
               isLoading: false,
-              showError: true,
               customerfailureOrSuccessOption: some(Left(failure))));
         }, (customer) {
           /// If the result was successful then we remove the customer from list

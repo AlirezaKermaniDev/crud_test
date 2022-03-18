@@ -6,6 +6,5 @@ import 'package:mc_crud_test/core/keys.dart';
 @module
 abstract class InjectableModules {
   @lazySingleton
-  Future<Box<String>> get database async =>
-      await Hive.openBox(Keys.databaseKey);
+  Box<String> get database => Hive.box<String>(Keys.databaseKey);
 }

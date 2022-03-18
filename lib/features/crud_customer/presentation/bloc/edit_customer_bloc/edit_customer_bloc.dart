@@ -17,7 +17,7 @@ part 'edit_customer_bloc_bloc.freezed.dart';
 /// [EditCustomerBloc] hold our BloC logics for editing a customer.
 ///
 /// For adding customer we must pass [EditCustomer] & [GetCustomerByEmail] use cases to this bloc.
-@injectable
+@lazySingleton
 class EditCustomerBloc
     extends Bloc<EditCustomerBlocEvent, EditCustomerBlocState> {
   final EditCustomer editCustomer;
@@ -28,9 +28,9 @@ class EditCustomerBloc
       /// Pass our initial State to `super` funtion to telling the bloc which state is our initial state.
       : super(EditCustomerBlocState.initial()) {
     /// Here we Map our `Events` to `States`
-    on<EditCustomerBlocEvent>((event, emit) {
+    on<EditCustomerBlocEvent>((event, emit) async {
       /// Map of all Events.
-      event.map(getCustomerByEmail: (e) async {
+      await event.map(getCustomerByEmail: (e) async {
         /// Set [isLoading] to true for showing loading widgets.
         emit(state.copyWith(
             isLoading: true, customerfailureOrSuccessOption: none()));
@@ -40,13 +40,12 @@ class EditCustomerBloc
             await getCustomerByEmail(params: e.emailAddress.getDataOrCrash());
 
         /// Fold the result to find out is it `failure` or `success`
-        resultOfGetting.fold((failure) {
+        await resultOfGetting.fold((failure) async {
           /// If result was failure we show some errors
           emit(state.copyWith(
               isLoading: false,
-              showError: true,
               customerfailureOrSuccessOption: Some(Left(failure))));
-        }, (customer) {
+        }, (customer) async {
           /// If result was successful then we replace our fields with our existing [Customer] data
           emit(state.copyWith(
               firstName: customer.firstname,
@@ -56,39 +55,38 @@ class EditCustomerBloc
               mobileNumber: customer.mobileNumber,
               bankAccountNumber: customer.bankAccountNumber,
               isLoading: false,
-              showError: false,
               customerfailureOrSuccessOption: none()));
         });
       },
 
           /// when [firstNameChanged] `Event` called this block of code will run.
-          firstNameChanged: (e) {
+          firstNameChanged: (e) async {
         emit(state.copyWith(
             firstName: e.firstName, customerfailureOrSuccessOption: none()));
       },
 
           /// when [lastNameChanged] `Event` called this block of code will run.
-          lastNameChanged: (e) {
+          lastNameChanged: (e) async {
         emit(state.copyWith(
             lastName: e.lastName, customerfailureOrSuccessOption: none()));
       },
 
           /// when [dateOfBirthChange] `Event` called this block of code will run.
-          dateOfBirthChange: (e) {
+          dateOfBirthChange: (e) async {
         emit(state.copyWith(
             dateOfBirth: e.dateOfBirth,
             customerfailureOrSuccessOption: none()));
       },
 
           /// when [mobileNumberChanged] `Event` called this block of code will run.
-          mobileNumberChanged: (e) {
+          mobileNumberChanged: (e) async {
         emit(state.copyWith(
             mobileNumber: MobileNumber(e.mobileNumber),
             customerfailureOrSuccessOption: none()));
       },
 
           /// when [bankAccountNumberChanged] `Event` called this block of code will run.
-          bankAccountNumberChanged: (e) {
+          bankAccountNumberChanged: (e) async {
         emit(state.copyWith(
             bankAccountNumber: BankAccountNumber(e.bankAccountNumber),
             customerfailureOrSuccessOption: none()));
@@ -117,7 +115,7 @@ class EditCustomerBloc
         } else {
           /// If params are not valid then we set showError to true.
           emit(state.copyWith(
-              showError: true, customerfailureOrSuccessOption: none()));
+              isLoading: false, customerfailureOrSuccessOption: none()));
         }
       });
     });
